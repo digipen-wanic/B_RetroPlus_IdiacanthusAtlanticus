@@ -23,7 +23,6 @@ class PlayerController : ZilchComponent
     this.InitPosition = this.ExactPosition;
     
   }
-
   function OnKeyDown(event : KeyboardEvent)
   {
     if(event.Key == Keys.W)
