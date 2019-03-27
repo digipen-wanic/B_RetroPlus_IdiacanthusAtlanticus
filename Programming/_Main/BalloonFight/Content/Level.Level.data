@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 36.4423904
+			var Size = 363.482269
 		}
 		EditorCameraController 
 		{
@@ -218,46 +218,40 @@ Level
 			var AttenuationScale = 1
 		}
 	}
-	Cog [ContextId:5]
+	Cog [InheritId:"5c4ed5487f748aa5:Player"][ContextId:5]
 	{
-		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{10, 20, 0}
-			var Scale = Real3{1, 1, 1}
+			var Translation = Real3{0, 0, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
-		Sprite 
+		PlayerScreenLoop [LocallyAdded]
 		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c4e2a59a44f92a0:x16square"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
+		}
+	}
+	Cog [InheritId:"5c4ed5487f748aa5:Player"][ContextId:6]
+	{
+		var Name = "PlayerR"
+		Transform 
+		{
+			var Translation = Real3{256, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
 		RigidBody 
 		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
+			var DynamicState = RigidBodyDynamicState.Static
 		}
-		PlayerController 
+	}
+	Cog [InheritId:"5c4ed5487f748aa5:Player"][ContextId:7]
+	{
+		var Name = "PlayerL"
+		Transform 
 		{
+			var Translation = Real3{-256, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
 	}
 }

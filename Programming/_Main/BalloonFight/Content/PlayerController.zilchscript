@@ -3,6 +3,8 @@ class PlayerController : ZilchComponent
   [Dependency]
   var Transform : Transform = null;
   var ExactPosition : Real3 = Real3(0,0,0);
+  [Property]
+  var InitPosition : Real3 = Real3(0,0,0);
   var ExactVelocity : Real3 = Real3(0,0,0);
   var ExactSpeed : Real = 0;
   var MaxSpeed : Real = 1;
@@ -13,6 +15,8 @@ class PlayerController : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
     this.ExactPosition = this.Owner.Transform.Translation;
+    this.InitPosition = this.ExactPosition;
+    
   }
 
   function OnKeyDown(event : KeyboardEvent)
@@ -32,9 +36,14 @@ class PlayerController : ZilchComponent
     if(this.ExactSpeed > this.MaxSpeed)
       this.ExactVelocity *= 0.95;
     
+    
     this.ExactVelocity += Real3(0,-this.GravityStrength,0) * event.Dt; 
     this.ExactSpeed = Math.Sqrt(this.ExactVelocity.X * this.ExactVelocity.X + this.ExactVelocity.Y * this.ExactVelocity.Y);
     this.ExactPosition += this.ExactVelocity * event.Dt * 60;
+    if(this.ExactPosition.X - this.InitPosition.X > 266)
+      this.ExactPosition += Real3(-256,0,0);
+    if(this.ExactPosition.X - this.InitPosition.X < -10)
+      this.ExactPosition += Real3(256,0,0);  
     this.Transform.Translation = Math.Round(this.ExactPosition);
   }
 }
