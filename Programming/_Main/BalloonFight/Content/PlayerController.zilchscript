@@ -7,7 +7,12 @@ class PlayerController : ZilchComponent
   var InitPosition : Real3 = Real3(0,0,0);
   var ExactVelocity : Real3 = Real3(0,0,0);
   var ExactSpeed : Real = 0;
+  [Property]
   var MaxSpeed : Real = 1;
+  [Property]
+  var UpForce : Real = 0.25;
+  [Property]
+  var SideForce : Real = 0.25;
   [Property]
   var GravityStrength : Real = 0.5;
   function Initialize(init : CogInitializer)
@@ -23,11 +28,11 @@ class PlayerController : ZilchComponent
   {
     if(event.Key == Keys.W)
     {
-      this.ExactVelocity += Real3(0,0.25,0);
+      this.ExactVelocity += Real3(0,this.UpForce,0);
       if(Zero.Keyboard.KeyIsDown(Keys.A))
-        this.ExactVelocity += Real3(-0.25,0,0);
+        this.ExactVelocity += Real3(-this.SideForce,0,0);
       if(Zero.Keyboard.KeyIsDown(Keys.D))
-        this.ExactVelocity += Real3(0.25,0,0);
+        this.ExactVelocity += Real3(this.SideForce,0,0);
     }
   }
 
