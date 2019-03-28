@@ -2,6 +2,8 @@ class PlayerController : ZilchComponent
 {
   [Dependency]
   var Transform : Transform = null;
+  [Dependency]
+  var RigidBody : RigidBody = null;
   var ExactPosition : Real3 = Real3(0,0,0);
   [Property]
   var InitPosition : Real3 = Real3(0,0,0);
@@ -15,39 +17,46 @@ class PlayerController : ZilchComponent
   var SideForce : Real = 0.25;
   [Property]
   var GravityStrength : Real = 0.5;
+  var Speed : Real = 0;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     this.ExactPosition = this.Owner.Transform.Translation;
     this.InitPosition = this.ExactPosition;
     
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
   }
   function OnKeyDown(event : KeyboardEvent)
   {
     if(event.Key == Keys.W)
     {
-      this.ExactVelocity += Real3(0,this.UpForce,0);
+      this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       if(Zero.Keyboard.KeyIsDown(Keys.A))
-        this.ExactVelocity += Real3(-this.SideForce,0,0);
+        this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(Zero.Keyboard.KeyIsDown(Keys.D))
-        this.ExactVelocity += Real3(this.SideForce,0,0);
+        this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
     }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.ExactSpeed > this.MaxSpeed)
-      this.ExactVelocity *= 0.95;
+    //loop horizontally
+    if(this.Transform.WorldTranslation.X > 266)
+      this.Owner.Parent.Transform.Translation += Real3(-256,0,0);    
+    if(this.Transform.WorldTranslation.X < -10)
+      this.Owner.Parent.Transform.Translation += Real3(256,0,0);
     
-    
-    this.ExactVelocity += Real3(0,-this.GravityStrength,0) * event.Dt; 
-    this.ExactSpeed = Math.Sqrt(this.ExactVelocity.X * this.ExactVelocity.X + this.ExactVelocity.Y * this.ExactVelocity.Y);
-    this.ExactPosition += this.ExactVelocity * event.Dt * 60;
-    if(this.ExactPosition.X - this.InitPosition.X > 266)
-      this.ExactPosition += Real3(-256,0,0);
-    if(this.ExactPosition.X - this.InitPosition.X < -10)
-      this.ExactPosition += Real3(256,0,0);  
-    this.Transform.Translation = Math.Round(this.ExactPosition);
+    this.Speed = Math.Sqrt(this.RigidBody.Velocity.X * this.RigidBody.Velocity.X + this.RigidBody.Velocity.Y * this.RigidBody.Velocity.Y);
+    if(this.Speed > this.MaxSpeed)
+      this.Owner.Parent.RigidBody.Velocity *= 0.95;
+      
+      
+   //this.Transform.Translation = Real3(0,0,0);  
+    this.Transform.WorldTranslation = Math.Round(this.Transform.WorldTranslation);
   }
 }
