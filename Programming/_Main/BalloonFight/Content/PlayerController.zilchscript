@@ -18,14 +18,29 @@ class PlayerController : ZilchComponent
   [Property]
   var GravityStrength : Real = 0.5;
   var Speed : Real = 0;
+  var Gamepad : Gamepad = null;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    this.Gamepad = Zero.Gamepads.GetGamePad(0);
+    Zero.Connect(this.Gamepad, Events.ButtonDown, this.OnButtonDown);
     this.ExactPosition = this.Owner.Transform.Translation;
     this.InitPosition = this.ExactPosition;
     
+  }
+
+  function OnButtonDown(event : GamepadEvent)
+  {
+    if(event.Button == Buttons.B)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
+        this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
+        this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
+    }
   }
 
   function OnCollisionStarted(event : CollisionEvent)
