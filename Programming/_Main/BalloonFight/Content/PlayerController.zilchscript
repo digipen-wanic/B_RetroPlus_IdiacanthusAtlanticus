@@ -1,3 +1,9 @@
+/*
+PlayerContoller
+Yuval Talby
+Controls the player(s?)
+*/
+
 class PlayerController : ZilchComponent
 {
   [Dependency]
@@ -19,6 +25,10 @@ class PlayerController : ZilchComponent
   var GravityStrength : Real = 0.5;
   var Speed : Real = 0;
   var Gamepad : Gamepad = null;
+  var Timer : Real = 0;
+  [Property]
+  var FlapInterval : Real = 0.1;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -33,13 +43,15 @@ class PlayerController : ZilchComponent
 
   function OnButtonDown(event : GamepadEvent)
   {
-    if(event.Button == Buttons.B)
+    if(event.Button == Buttons.B && this.Timer > this.FlapInterval)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
+      this.Timer = 0;  
+      Console.WriteLine("tick");
     }
   }
 
@@ -48,13 +60,14 @@ class PlayerController : ZilchComponent
   }
   function OnKeyDown(event : KeyboardEvent)
   {
-    if(event.Key == Keys.W)
+    if(event.Key == Keys.W && this.Timer > this.FlapInterval)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       if(Zero.Keyboard.KeyIsDown(Keys.A))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(Zero.Keyboard.KeyIsDown(Keys.D))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
+      this.Timer = 0;  
     }
   }
 
@@ -73,5 +86,6 @@ class PlayerController : ZilchComponent
       
    //this.Transform.Translation = Real3(0,0,0);  
     this.Transform.WorldTranslation = Math.Round(this.Transform.WorldTranslation);
+    this.Timer += event.Dt;
   }
 }
