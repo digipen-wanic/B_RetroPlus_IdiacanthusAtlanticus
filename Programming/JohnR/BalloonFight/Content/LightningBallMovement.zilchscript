@@ -1,0 +1,23 @@
+////////////////////////
+//Name: John Richardson
+//Date Created: 3/27/2019
+//Date Edited: 3/28/2019
+//Description: Movement for the Lightning Ball Projectile
+//Version 1.1
+////////////////////////
+
+
+class LightningBallMovement : ZilchComponent
+{
+  [Property]
+  var Speed : Real = 40;
+  
+  var RandGen : Random = Random();
+  
+  function Initialize(init : CogInitializer)
+  {
+    //randomizes velocity
+    this.Owner.RigidBody.Velocity = Math.Normalize(Real3(Math.Cos(this.RandGen.DieRoll(360)),Math.Sin(this.RandGen.DieRoll(360)),0));
+    this.Owner.RigidBody.Velocity *= this.Speed;
+  }
+}

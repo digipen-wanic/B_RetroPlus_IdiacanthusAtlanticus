@@ -1,0 +1,54 @@
+class PlayerController : ZilchComponent
+{
+  [Dependency]
+  var Transform : Transform = null;
+  var ExactPosition : Real3 = Real3(0,0,0);
+  [Property]
+  var InitPosition : Real3 = Real3(0,0,0);
+  var ExactVelocity : Real3 = Real3(0,0,0);
+  var ExactSpeed : Real = 0;
+  [Property]
+  var MaxSpeed : Real = 1;
+  [Property]
+  var UpForce : Real = 0.25;
+  [Property]
+  var SideForce : Real = 0.25;
+  [Property]
+  var GravityStrength : Real = 0.5;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    this.ExactPosition = this.Owner.Transform.Translation;
+    this.InitPosition = this.ExactPosition;
+    
+  }
+
+  function OnKeyDown(event : KeyboardEvent)
+  {
+    if(event.Key == Keys.W)
+    {
+      this.ExactVelocity += Real3(0,this.UpForce,0);
+      if(Zero.Keyboard.KeyIsDown(Keys.A))
+        this.ExactVelocity += Real3(-this.SideForce,0,0);
+      if(Zero.Keyboard.KeyIsDown(Keys.D))
+        this.ExactVelocity += Real3(this.SideForce,0,0);
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.ExactSpeed > this.MaxSpeed)
+      this.ExactVelocity *= 0.95;
+    
+    
+    this.ExactVelocity += Real3(0,-this.GravityStrength,0) * event.Dt; 
+    this.ExactSpeed = Math.Sqrt(this.ExactVelocity.X * this.ExactVelocity.X + this.ExactVelocity.Y * this.ExactVelocity.Y);
+    this.ExactPosition += this.ExactVelocity * event.Dt * 60;
+    if(this.ExactPosition.X - this.InitPosition.X > 266)
+      this.ExactPosition += Real3(-256,0,0);
+    if(this.ExactPosition.X - this.InitPosition.X < -10)
+      this.ExactPosition += Real3(256,0,0);  
+    this.Transform.Translation = Math.Round(this.ExactPosition);
+  }
+}
