@@ -10,7 +10,7 @@ Level
 			var WakeUpOnChange = false
 			var DebugDrawEffect = false
 			var LocalSpaceDirection = true
-			var Strength = 50
+			var Strength = 30
 			var Direction = Real3{0, -1, 0}
 		}
 		DragEffect 
@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{167.736526, 101.385101, 20.0000134}
+			var Translation = Real3{229.767883, 128.131805, 19.0000038}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 522.673462
+			var Size = 577.644531
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{167.736526, 101.385101, 1.26861523e-05}
+			var LookTarget = Real3{229.767883, 128.131805, -0.999995708}
 			var MoveSensitivity = 1
 		}
 	}
@@ -218,7 +218,7 @@ Level
 			var AttenuationScale = 1
 		}
 	}
-	Cog [InheritId:"5c49e3f172a9c504:PlayerBox"][ContextId:5]
+	Cog [InheritId:"5c48f8255388f5c3:PlayerBoxM"][ContextId:5]
 	{
 		var Name = "PlayerBoxM"
 		Transform 
@@ -227,96 +227,10 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		RigidBody 
-		{
-			var RotationLocked = true
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5c49e00beda3ed21][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:6]
-			{
-				var Name = "PlayerM"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{1, 1, 1}
-				}
-				PlayerController 
-				{
-					var UpForce = 25
-					var SideForce = 25
-					var GravityStrength = 25
-				}
-				Hierarchy [ChildOrderOverride]
-				{
-					Cog [Id:0x5c49e00fecbbf106][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:7]
-					{
-						var Name = "PlayerBoxL"
-						Transform 
-						{
-							var Translation = Real3{-256, 0, 0}
-							var Rotation = Quaternion{0, 0, 0, 1}
-							var Scale = Real3{1, 1, 1}
-						}
-						RigidBody 
-						{
-							var RotationLocked = true
-						}
-						Hierarchy 
-						{
-							Cog [Id:0x5c49e0731c909bb7][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:8]
-							{
-								var Name = "PlayerL"
-								Transform 
-								{
-									var Translation = Real3{0, 0, 0}
-									var Rotation = Quaternion{0, 0, 0, 1}
-									var Scale = Real3{1, 1, 1}
-								}
-								PlayerController [LocallyRemoved]
-								{
-								}
-							}
-						}
-					}
-					Cog [Id:0x5c49e031ec0473e8][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:9]
-					{
-						var Name = "PlayerBoxR"
-						Transform 
-						{
-							var Translation = Real3{256, 0, 0}
-							var Rotation = Quaternion{0, 0, 0, 1}
-							var Scale = Real3{1, 1, 1}
-						}
-						RigidBody 
-						{
-							var RotationLocked = true
-						}
-						Hierarchy 
-						{
-							Cog [Id:0x5c49e0751c182c78][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:10]
-							{
-								var Name = "PlayerR"
-								Transform 
-								{
-									var Translation = Real3{0, 0, 0}
-									var Rotation = Quaternion{0, 0, 0, 1}
-									var Scale = Real3{1, 1, 1}
-								}
-								PlayerController [LocallyRemoved]
-								{
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:6]
 	{
-		var Name = "IA_Platform_Right"
+		var Name = "Platform_Right"
 		Transform 
 		{
 			var Translation = Real3{223, 15, 0}
@@ -359,12 +273,60 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var HalfSize = Real3{32, 8, 2.5}
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:7]
 	{
-		var Name = "IA_Platform_Center"
+		var Name = "Platform_RightOut"
+		Transform 
+		{
+			var Translation = Real3{273, 15, -1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c017341789bc31f:IA_Platform_Right"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{32, 8, 2.5}
+		}
+	}
+	Cog [ContextId:8]
+	{
+		var Name = "Platform_Center"
 		Transform 
 		{
 			var Translation = Real3{127.5, 80, 0}
@@ -404,15 +366,15 @@ Level
 		{
 			var Ghost = false
 			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var Material = "5c48d3614e46712a:Firm"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var HalfSize = Real3{56, 3.5, 2.5}
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:9]
 	{
-		var Name = "IA_Platform_Left"
+		var Name = "Platform_Left"
 		Transform 
 		{
 			var Translation = Real3{32, 15, 0}
@@ -455,10 +417,58 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var HalfSize = Real3{32, 8, 2.5}
 		}
 	}
-	Cog [ContextId:14]
+	Cog [ContextId:10]
+	{
+		var Name = "Platform_LeftOut"
+		Transform 
+		{
+			var Translation = Real3{-22, 15, -1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c017341789b6d7e:IA_Platform_Left"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{32, 8, 2.5}
+		}
+	}
+	Cog [ContextId:11]
 	{
 		var Name = "Balloonbattlemainstage"
 		Transform 
@@ -485,6 +495,15 @@ Level
 			var AnimationActive = true
 			var AnimationSpeed = 1
 			var StartFrame = 0
+		}
+	}
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:12]
+	{
+		Transform 
+		{
+			var Translation = Real3{172.124588, 116.860641, -0.999995649}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
 	}
 }

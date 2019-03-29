@@ -7,13 +7,13 @@ ImageContent
 		var ResourceId = 0x5c18f89303ef90f5
 		var FrameSizeX = 16
 		var FrameSizeY = 24
-		var FrameCount = 3
+		var FrameCount = 4
 		var FrameDelay = 0.0625
-		var OriginX = 8
-		var OriginY = 12
+		var OriginX = 0
+		var OriginY = 24
 		var PixelsPerUnit = 1
 		var Sampling = SpriteSampling.Nearest
-		var Looping = true
+		var Looping = false
 		var Slices = Real4{0, 0, 0, 0}
 		var Fill = SpriteFill.Stretch
 	}

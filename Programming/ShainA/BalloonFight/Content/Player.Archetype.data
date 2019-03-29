@@ -20,7 +20,7 @@ Cog
 		var Material = "582c575af53d18c9:AlphaSprite"
 		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c4e2a59a44f92a0:x16square"
+		var SpriteSource = "5c017de4bfcdc380:IA_BalloonFighterFalling_Ani"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
@@ -37,23 +37,20 @@ Cog
 		var RotationLocked = false
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
-	PlayerController 
-	{
-		var InitPosition = Real3{0, 0, 0}
-		var MaxSpeed = 100
-		var UpForce = 0.25
-		var SideForce = 0.25
-		var GravityStrength = 0.5
-		var FlapInterval = 0.100000001
-	}
 	RigidSync 
 	{
 	}
 	RoundPosition 
 	{
 	}
-	Player_Animation_Controler 
+	PlayerController 
 	{
+		var InitPosition = Real3{0, 0, 0}
+		var MaxSpeed = 50
+		var UpForce = 10
+		var SideForce = 10
+		var GravityStrength = 0.5
+		var FlapInterval = 0.100000001
 	}
 	Hierarchy 
 	{

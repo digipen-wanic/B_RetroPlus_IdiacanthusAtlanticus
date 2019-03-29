@@ -14,6 +14,6 @@ class RoundPosition : ZilchComponent
     this.Transform.Translation = this.InitLocalTranslation;
     //this.Transform.Translation = Real3(0,0,0);
     //Console.WriteLine("`this.Transform.Translation.X` `this.Owner.Name`");
-    this.Transform.WorldTranslation = Math.Round(this.Transform.WorldTranslation);
+    this.Transform.WorldTranslation = Math.Floor(this.Transform.WorldTranslation);
   }
 }
