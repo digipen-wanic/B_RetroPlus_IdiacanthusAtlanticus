@@ -9,7 +9,8 @@
 
 class LightningBallSpawner : ZilchComponent
 {
-  var Delay : Real = 2;
+  [Property]
+  var Delay : Real = 5;
   var Timer : Real = 0;
   
   [Property]

@@ -1,10 +1,10 @@
 [Version:1]
 Cog 
 {
-	var Name = "LightningBall"
+	var Name = "PlayerSpawner"
 	Transform 
 	{
-		var Translation = Real3{241.054047, 229.806305, 0}
+		var Translation = Real3{156.16124, 171.108963, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -17,8 +17,8 @@ Cog
 		var LocalAabbCenter = Real3{0, 0, 0}
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
-		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{0, 1, 0.970000029, 1}
+		var Material = "582c50d330d372c3:AdditiveSprite"
+		var VertexColor = Real4{1, 0.960000157, 0, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
 		var SpriteSource = "5c4e2a59a44f92a0:x16square"
 		var FlipX = false
@@ -27,16 +27,11 @@ Cog
 		var AnimationSpeed = 1
 		var StartFrame = 0
 	}
-	LightningBallMovement 
-	{
-		var Speed = 50
-		var Delay = 5
-	}
 	RigidBody 
 	{
-		var Velocity = Real3{1, 1, 0}
+		var Velocity = Real3{0, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
-		var DynamicState = RigidBodyDynamicState.Dynamic
+		var DynamicState = RigidBodyDynamicState.Static
 		var AllowSleep = true
 		var Asleep = false
 		var RotationLocked = true
@@ -46,9 +41,14 @@ Cog
 	{
 		var Ghost = false
 		var SendsEvents = true
-		var Material = "5cfd3a43c4f186ee:Bounce"
-		var CollisionGroup = "5c51dbf7661033a8:LightningBall"
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "5c51dbda799897ad:PlayerSpawner"
 		var Offset = Real3{8, 8, 0}
 		var HalfSize = Real3{8, 8, 0.5}
+	}
+	PlayerSpawner 
+	{
+		var Delay = 2
+		var Player = "5cfbcf994a86fd26:Player"
 	}
 }

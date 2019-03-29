@@ -4,7 +4,7 @@ Cog
 	var Name = "Player"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
+		var Translation = Real3{383.675049, 118.080948, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -34,5 +34,28 @@ Cog
 		var UpForce = 0.25
 		var SideForce = 0.25
 		var GravityStrength = 0.5
+	}
+	PlayerKillScript 
+	{
+		var PlayerRespawner = "5c51db2f17882c92:PlayerSpawner"
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{8, 8, 0}
+		var HalfSize = Real3{8, 8, 0.5}
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 }

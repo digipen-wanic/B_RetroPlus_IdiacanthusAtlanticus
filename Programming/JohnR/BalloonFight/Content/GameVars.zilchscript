@@ -3,6 +3,7 @@
 //Date Created: 3/28/2019
 //Date Edited: 3/28/2019
 //Description: Global Variables are stored here
+//Version: 1.0
 //////////////////////
 
 class GameVars : ZilchComponent
@@ -10,6 +11,7 @@ class GameVars : ZilchComponent
   //PlayerLives
   var CurrentLives : Real = 3;
   var PlayerBalloons : Real = 2;
+  var PlayerNumber : Real = 1;
   
   function Initialize(init : CogInitializer)
   {
