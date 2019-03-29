@@ -1,0 +1,27 @@
+class EnemyAI : ZilchComponent
+{
+  var Timer : Real = 0;
+  [Dependency]
+  var RigidBody : RigidBody = null;
+  [Dependency]
+  var Transform : Transform = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //loop horizontally
+    if(this.Transform.WorldTranslation.X > 266)
+      this.Owner.Parent.Transform.Translation += Real3(-256,0,0);    
+    if(this.Transform.WorldTranslation.X < -10)
+      this.Owner.Parent.Transform.Translation += Real3(256,0,0);
+    if(this.Timer > 1)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(0,30,0);
+      this.Timer = 0;
+    }
+    this.Timer += event.Dt;
+  }
+}

@@ -1,0 +1,54 @@
+[Version:1]
+Cog 
+{
+	var Name = "PlayerSpawner"
+	Transform 
+	{
+		var Translation = Real3{156.16124, 171.108963, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c50d330d372c3:AdditiveSprite"
+		var VertexColor = Real4{1, 0.960000157, 0, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5c4e2a59a44f92a0:x16square"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Static
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = true
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "5c51dbda799897ad:PlayerSpawner"
+		var Offset = Real3{8, 8, 0}
+		var HalfSize = Real3{8, 8, 0.5}
+	}
+	PlayerSpawner 
+	{
+		var Delay = 2
+		var Player = "5cfbcf994a86fd26:Player"
+	}
+}

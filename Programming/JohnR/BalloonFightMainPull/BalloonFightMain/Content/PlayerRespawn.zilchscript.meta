@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "PlayerRespawn"
+		var ResourceId = 0x5cfd411a5b2b6644
+	}
+}
