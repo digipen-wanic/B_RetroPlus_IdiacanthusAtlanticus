@@ -14,9 +14,35 @@ class LightningBallMovement : ZilchComponent
   
   var RandGen : Random = Random();
   
+  [Property]
+  var Delay : Real = 5;
+  
+  var Timer : Real = 0;
+  
   function Initialize(init : CogInitializer)
   {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     //randomizes velocity
-    this.Owner.RigidBody.Velocity = Math.Normalize(Real3(Math.Cos(this.RandGen.DieRoll(360)),Math.Sin(this.RandGen.DieRoll(360)),0)) * this.Speed;
+    this.Owner.RigidBody.Velocity = Math.Normalize(Real3(Math.Cos(this.RandGen.DieRoll(360)),Math.Sin(this.RandGen.DieRoll(360)),0));
+    this.Owner.RigidBody.Velocity *= this.Speed;
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.PlayerKill != null)
+    {
+      this.GameSession.GameVars.PlayerBalloons = 0;
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Timer >= this.Delay)
+    {
+      this.Owner.Destroy();
+    }
+    
+    this.Timer += event.Dt;
   }
 }
