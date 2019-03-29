@@ -1,10 +1,10 @@
 [Version:1]
 Cog 
 {
-	var Name = "Player"
+	var Name = "EnemyBoxR"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
+		var Translation = Real3{-118.883942, -68.0659027, 0.00249862671}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -18,9 +18,9 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{1, 1, 1, 1}
+		var VertexColor = Real4{1, 0, 0, 0}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c017de4bfcdc380:IA_BalloonFighterFalling_Ani"
+		var SpriteSource = "5c4e2a59a44f92a0:x16square"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
@@ -34,25 +34,25 @@ Cog
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true
 		var Asleep = false
-		var RotationLocked = false
+		var RotationLocked = true
 		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{8, 8, 0}
+		var HalfSize = Real3{8, 8, 1}
 	}
 	RigidSync 
 	{
 	}
-	RoundPosition 
-	{
-	}
-	PlayerController 
-	{
-		var InitPosition = Real3{0, 0, 0}
-		var MaxSpeed = 50
-		var UpForce = 10
-		var SideForce = 10
-		var GravityStrength = 0.5
-		var FlapInterval = 0.100000001
-	}
 	Hierarchy 
 	{
+		Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"]
+		{
+		}
 	}
 }

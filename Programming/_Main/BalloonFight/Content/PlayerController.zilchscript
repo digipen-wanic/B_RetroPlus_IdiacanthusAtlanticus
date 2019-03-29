@@ -46,12 +46,13 @@ class PlayerController : ZilchComponent
     if(event.Button == Buttons.B && this.Timer > this.FlapInterval)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
+      this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
       this.Timer = 0;  
-      Console.WriteLine("tick");
+      //Console.WriteLine("tick");
     }
   }
 
@@ -63,6 +64,7 @@ class PlayerController : ZilchComponent
     if(event.Key == Keys.W && this.Timer > this.FlapInterval)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
+      this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
       if(Zero.Keyboard.KeyIsDown(Keys.A))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(Zero.Keyboard.KeyIsDown(Keys.D))

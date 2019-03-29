@@ -1,7 +1,7 @@
 [Version:1]
 Cog 
 {
-	var Name = "Player"
+	var Name = "EnemyM"
 	Transform 
 	{
 		var Translation = Real3{0, 0, 0}
@@ -18,9 +18,9 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{1, 1, 1, 1}
+		var VertexColor = Real4{1, 0, 0, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c017de4bfcdc380:IA_BalloonFighterFalling_Ani"
+		var SpriteSource = "5c4e2a59a44f92a0:x16square"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
@@ -34,25 +34,13 @@ Cog
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true
 		var Asleep = false
-		var RotationLocked = false
+		var RotationLocked = true
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 	RigidSync 
 	{
 	}
 	RoundPosition 
-	{
-	}
-	PlayerController 
-	{
-		var InitPosition = Real3{0, 0, 0}
-		var MaxSpeed = 50
-		var UpForce = 10
-		var SideForce = 10
-		var GravityStrength = 0.5
-		var FlapInterval = 0.100000001
-	}
-	Hierarchy 
 	{
 	}
 }

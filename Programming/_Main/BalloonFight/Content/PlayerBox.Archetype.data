@@ -41,12 +41,15 @@ Cog
 	{
 		var Ghost = false
 		var SendsEvents = true
-		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var Material = "5c48d3614e46712a:Firm"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{8, 8, 0}
-		var HalfSize = Real3{8, 8, 0.5}
+		var HalfSize = Real3{5, 8, 0.5}
 	}
 	RigidSync 
+	{
+	}
+	PlayerAnimationControler 
 	{
 	}
 }
