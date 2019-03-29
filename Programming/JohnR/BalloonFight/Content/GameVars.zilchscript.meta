@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "GameVars"
-		var ResourceId = 0x5cfd3eec276d1c0f
-	}
-}
