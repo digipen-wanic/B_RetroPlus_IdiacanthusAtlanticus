@@ -26,6 +26,7 @@ class LightningBallMovement : ZilchComponent
     //randomizes velocity
     this.Owner.RigidBody.Velocity = Math.Normalize(Real3(Math.Cos(this.RandGen.DieRoll(360)),Math.Sin(this.RandGen.DieRoll(360)),0));
     this.Owner.RigidBody.Velocity *= this.Speed;
+    this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, 0);
   }
 
   function OnCollisionStarted(event : CollisionEvent)
@@ -33,6 +34,7 @@ class LightningBallMovement : ZilchComponent
     if(event.OtherObject.PlayerKill != null)
     {
       this.GameSession.GameVars.PlayerBalloons = 0;
+      this.Owner.Destroy();
     }
   }
 

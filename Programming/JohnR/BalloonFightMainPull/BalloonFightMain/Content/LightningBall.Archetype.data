@@ -4,7 +4,7 @@ Cog
 	var Name = "LightningBall"
 	Transform 
 	{
-		var Translation = Real3{229.767883, 128.131805, -0.999995708}
+		var Translation = Real3{229.767883, 128.57637, -0.999995708}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -64,7 +64,7 @@ Cog
 		var Material = "5cfd395d54b4ed83:Bounce"
 		var CollisionGroup = "5cfe7e358a7b5d25:LightningBall"
 		var Offset = Real3{8, 8, 0}
-		var Radius = 8
+		var Radius = 4
 	}
 	Hierarchy 
 	{
@@ -73,7 +73,7 @@ Cog
 			var Name = "LightningBallChild"
 			Transform 
 			{
-				var Translation = Real3{-1.52587891e-05, 1.52587891e-05, 0}
+				var Translation = Real3{8.00224304, 7.779953, 0}
 				var Scale = Real3{1, 1, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
@@ -89,7 +89,7 @@ Cog
 				var Material = "582c575af53d18c9:AlphaSprite"
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
-				var SpriteSource = "5c4e2a59a44f92a0:x16square"
+				var SpriteSource = "5cfe92b3b4fcf0fc:IA_Spark_Ani"
 				var FlipX = false
 				var FlipY = false
 				var AnimationActive = true

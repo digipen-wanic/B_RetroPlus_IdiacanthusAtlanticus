@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 387.206879
+			var Size = 387.206696
 		}
 		EditorCameraController 
 		{
@@ -515,7 +515,7 @@ Level
 		var Name = "Cloud"
 		Transform 
 		{
-			var Translation = Real3{121.92276, 175.12854, -0.999995708}
+			var Translation = Real3{121.92276, 175.12854, -2}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -531,7 +531,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var SpriteSource = "5cfe9357a8867958:IA_BaseCloud"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -548,7 +548,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{229.767883, 128.131805, -0.999995708}
+			var Translation = Real3{229.767883, 128.57637, -0.999995708}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -557,7 +557,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{256.846466, -42.0720444, -0.999995708}
+			var Translation = Real3{256.846466, -42.0720444, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 20, 1}
 		}
@@ -570,7 +570,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-18.4308929, -39.8579788, -0.999995708}
+			var Translation = Real3{-18.4308929, -39.8579788, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 20, 1}
 		}
@@ -583,7 +583,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-34.6671143, 246.489487, -0.999995708}
+			var Translation = Real3{-34.6671143, 246.489487, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{20, 1, 1}
 		}
@@ -596,7 +596,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-44.2612152, -14.7656708, -0.999995708}
+			var Translation = Real3{-44.2612152, -14.7656708, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{20, 1, 1}
 		}
