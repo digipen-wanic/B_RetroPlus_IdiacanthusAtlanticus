@@ -31,7 +31,10 @@ class PlayerAnimationControler : ZilchComponent
         event.OtherObject.Destroy();
       }
       else if(event.OtherObject.Transform.Translation.Y > this.PlayerChild.Transform.WorldTranslation.Y + 10)
+      {
+        this.GameSession.GameVars.PlayerBalloons -= 1;
         Console.WriteLine("hit!");
+      }
     }
   }
 

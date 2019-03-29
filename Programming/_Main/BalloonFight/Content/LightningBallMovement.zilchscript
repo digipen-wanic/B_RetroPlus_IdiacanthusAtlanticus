@@ -30,7 +30,7 @@ class LightningBallMovement : ZilchComponent
 
   function OnCollisionStarted(event : CollisionEvent)
   {
-    if(event.OtherObject.PlayerKill != null)
+    if(event.OtherObject.Name.Contains("PlayerBox"))
     {
       this.GameSession.GameVars.PlayerBalloons = 0;
     }
