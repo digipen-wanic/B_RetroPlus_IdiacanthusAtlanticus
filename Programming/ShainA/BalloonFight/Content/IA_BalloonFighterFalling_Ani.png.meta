@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_BalloonFighterFalling_Ani"
+		var ResourceId = 0x5c017de4bfcdc380
+		var FrameSizeX = 15
+		var FrameSizeY = 13
+		var FrameCount = 3
+		var FrameDelay = 0.111111112
+		var OriginX = 7.5
+		var OriginY = 6.5
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

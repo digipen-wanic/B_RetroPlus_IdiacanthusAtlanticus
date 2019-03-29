@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 212.503357
+			var Size = 522.673462
 		}
 		EditorCameraController 
 		{
@@ -218,13 +218,109 @@ Level
 			var AttenuationScale = 1
 		}
 	}
-	Cog [ContextId:5]
+	Cog [InheritId:"5c49e3f172a9c504:PlayerBox"][ContextId:5]
 	{
-		var Name = "Sprite"
+		var Name = "PlayerBoxM"
 		Transform 
 		{
-			var Translation = Real3{131.926483, 49.1884079, 0}
-			var Scale = Real3{100, 10, 1}
+			var Translation = Real3{125.511139, 115.602386, -1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		RigidBody 
+		{
+			var RotationLocked = true
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c49e00beda3ed21][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:6]
+			{
+				var Name = "PlayerM"
+				Transform 
+				{
+					var Translation = Real3{0, 0, 0}
+					var Rotation = Quaternion{0, 0, 0, 1}
+					var Scale = Real3{1, 1, 1}
+				}
+				PlayerController 
+				{
+					var UpForce = 25
+					var SideForce = 25
+					var GravityStrength = 25
+				}
+				Hierarchy [ChildOrderOverride]
+				{
+					Cog [Id:0x5c49e00fecbbf106][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:7]
+					{
+						var Name = "PlayerBoxL"
+						Transform 
+						{
+							var Translation = Real3{-256, 0, 0}
+							var Rotation = Quaternion{0, 0, 0, 1}
+							var Scale = Real3{1, 1, 1}
+						}
+						RigidBody 
+						{
+							var RotationLocked = true
+						}
+						Hierarchy 
+						{
+							Cog [Id:0x5c49e0731c909bb7][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:8]
+							{
+								var Name = "PlayerL"
+								Transform 
+								{
+									var Translation = Real3{0, 0, 0}
+									var Rotation = Quaternion{0, 0, 0, 1}
+									var Scale = Real3{1, 1, 1}
+								}
+								PlayerController [LocallyRemoved]
+								{
+								}
+							}
+						}
+					}
+					Cog [Id:0x5c49e031ec0473e8][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:9]
+					{
+						var Name = "PlayerBoxR"
+						Transform 
+						{
+							var Translation = Real3{256, 0, 0}
+							var Rotation = Quaternion{0, 0, 0, 1}
+							var Scale = Real3{1, 1, 1}
+						}
+						RigidBody 
+						{
+							var RotationLocked = true
+						}
+						Hierarchy 
+						{
+							Cog [Id:0x5c49e0751c182c78][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:10]
+							{
+								var Name = "PlayerR"
+								Transform 
+								{
+									var Translation = Real3{0, 0, 0}
+									var Rotation = Quaternion{0, 0, 0, 1}
+									var Scale = Real3{1, 1, 1}
+								}
+								PlayerController [LocallyRemoved]
+								{
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	Cog [ContextId:11]
+	{
+		var Name = "IA_Platform_Right"
+		Transform 
+		{
+			var Translation = Real3{223, 15, 0}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -239,7 +335,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+			var SpriteSource = "5c017341789bc31f:IA_Platform_Right"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -263,103 +359,132 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 5}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [InheritId:"5c49e3f172a9c504:PlayerBox"][ContextId:6]
+	Cog [ContextId:12]
 	{
-		var Name = "PlayerBoxM"
+		var Name = "IA_Platform_Center"
 		Transform 
 		{
-			var Translation = Real3{125.511139, 115.602386, -1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Translation = Real3{127.5, 80, 0}
 			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c017341789b12da:IA_Platform_Center"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 		RigidBody 
 		{
-			var RotationLocked = true
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
 		}
-		Hierarchy 
+		BoxCollider 
 		{
-			Cog [Id:0x5c49e00beda3ed21][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:7]
-			{
-				var Name = "PlayerM"
-				Transform 
-				{
-					var Translation = Real3{0, 0, 0}
-					var Rotation = Quaternion{0, 0, 0, 1}
-					var Scale = Real3{1, 1, 1}
-				}
-				PlayerController 
-				{
-					var UpForce = 25
-					var SideForce = 25
-					var GravityStrength = 25
-				}
-				Hierarchy [ChildOrderOverride]
-				{
-					Cog [Id:0x5c49e00fecbbf106][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:8]
-					{
-						var Name = "PlayerBoxL"
-						Transform 
-						{
-							var Translation = Real3{-256, 0, 0}
-							var Rotation = Quaternion{0, 0, 0, 1}
-							var Scale = Real3{1, 1, 1}
-						}
-						RigidBody 
-						{
-							var RotationLocked = true
-						}
-						Hierarchy 
-						{
-							Cog [Id:0x5c49e0731c909bb7][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:9]
-							{
-								var Name = "PlayerL"
-								Transform 
-								{
-									var Translation = Real3{0, 0, 0}
-									var Rotation = Quaternion{0, 0, 0, 1}
-									var Scale = Real3{1, 1, 1}
-								}
-								PlayerController [LocallyRemoved]
-								{
-								}
-							}
-						}
-					}
-					Cog [Id:0x5c49e031ec0473e8][InheritId:"5c49e3f172a9c504:PlayerBox"][LocallyAdded][ContextId:10]
-					{
-						var Name = "PlayerBoxR"
-						Transform 
-						{
-							var Translation = Real3{256, 0, 0}
-							var Rotation = Quaternion{0, 0, 0, 1}
-							var Scale = Real3{1, 1, 1}
-						}
-						RigidBody 
-						{
-							var RotationLocked = true
-						}
-						Hierarchy 
-						{
-							Cog [Id:0x5c49e0751c182c78][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded][ContextId:11]
-							{
-								var Name = "PlayerR"
-								Transform 
-								{
-									var Translation = Real3{0, 0, 0}
-									var Rotation = Quaternion{0, 0, 0, 1}
-									var Scale = Real3{1, 1, 1}
-								}
-								PlayerController [LocallyRemoved]
-								{
-								}
-							}
-						}
-					}
-				}
-			}
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+	}
+	Cog [ContextId:13]
+	{
+		var Name = "IA_Platform_Left"
+		Transform 
+		{
+			var Translation = Real3{32, 15, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c017341789b6d7e:IA_Platform_Left"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+	}
+	Cog [ContextId:14]
+	{
+		var Name = "Balloonbattlemainstage"
+		Transform 
+		{
+			var Translation = Real3{127.5, 103.697815, -1}
+			var Scale = Real3{0.74000001, 0.800000012, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = false
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c017b2ceb3d580e:Balloonbattlemainstage"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }

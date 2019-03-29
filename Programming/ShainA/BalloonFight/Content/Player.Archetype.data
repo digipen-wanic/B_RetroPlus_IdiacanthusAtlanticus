@@ -44,11 +44,15 @@ Cog
 		var UpForce = 0.25
 		var SideForce = 0.25
 		var GravityStrength = 0.5
+		var FlapInterval = 0.100000001
 	}
 	RigidSync 
 	{
 	}
 	RoundPosition 
+	{
+	}
+	Player_Animation_Controler 
 	{
 	}
 	Hierarchy 

@@ -3,7 +3,7 @@ ImageContent
 {
 	SpriteSourceBuilder 
 	{
-		var Name = "IA_BalloonFighterFlapHalf_0"
+		var Name = "IA_BalloonFighterFlapHalf_Ani"
 		var ResourceId = 0x5c18f95f352a0aed
 		var FrameSizeX = 16
 		var FrameSizeY = 24

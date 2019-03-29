@@ -31,13 +31,17 @@ class Player_Animation_Controler : ZilchComponent
   {
     if(event.Button == Buttons.B)
     {
-      this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_0;
+      this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
       if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
         
       if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
         
         
       Console.WriteLine("tick");
+    }
+    else if(event.Button != Buttons.B)
+    {
+      //this.Owner.Sprite.SpriteSource = SpriteSource.;
     }
   }
 }
