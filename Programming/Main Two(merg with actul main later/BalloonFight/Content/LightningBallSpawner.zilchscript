@@ -1,0 +1,36 @@
+///////////////////////////////////////
+//Name: John Richardson
+//Date Created: 3/27/2019
+//Date Edited: 3/27/2019
+//Description: Spawns the lightning ball projectile
+//Version 1.0
+///////////////////////////////////////
+
+
+class LightningBallSpawner : ZilchComponent
+{
+  [Property]
+  var Delay : Real = 5;
+  var Timer : Real = 0;
+  
+  [Property]
+  var Projectile : Archetype = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //Increases Timer
+    this.Timer += event.Dt;
+    if(this.Timer >= this.Delay)
+    {
+      //Creates object at position of the spawner
+      this.Space.CreateAtPosition(this.Projectile, this.Owner.Transform.Translation);
+      //resets the timer
+      this.Timer = 0;
+    }
+  }
+}
