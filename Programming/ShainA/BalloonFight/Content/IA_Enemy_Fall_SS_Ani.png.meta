@@ -9,8 +9,8 @@ ImageContent
 		var FrameSizeY = 15
 		var FrameCount = 2
 		var FrameDelay = 0.100000001
-		var OriginX = 7
-		var OriginY = 7.5
+		var OriginX = 0
+		var OriginY = 15
 		var PixelsPerUnit = 1
 		var Sampling = SpriteSampling.Nearest
 		var Looping = true

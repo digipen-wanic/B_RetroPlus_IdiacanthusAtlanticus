@@ -43,15 +43,6 @@ Cog
 	RoundPosition 
 	{
 	}
-	PlayerController 
-	{
-		var InitPosition = Real3{0, 0, 0}
-		var MaxSpeed = 50
-		var UpForce = 10
-		var SideForce = 10
-		var GravityStrength = 0.5
-		var FlapInterval = 0.100000001
-	}
 	Hierarchy 
 	{
 	}

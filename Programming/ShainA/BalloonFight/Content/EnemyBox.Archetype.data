@@ -4,7 +4,7 @@ Cog
 	var Name = "EnemyBoxR"
 	Transform 
 	{
-		var Translation = Real3{-118.883942, -68.0659027, 0.00249862671}
+		var Translation = Real3{-8, -8, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
