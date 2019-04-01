@@ -16,11 +16,11 @@ class PlayerController : ZilchComponent
   var ExactVelocity : Real3 = Real3(0,0,0);
   var ExactSpeed : Real = 0;
   [Property]
-  var MaxSpeed : Real = 1;
+  var MaxSpeed : Real = 50;
   [Property]
-  var UpForce : Real = 0.25;
+  var UpForce : Real = 10;
   [Property]
-  var SideForce : Real = 0.25;
+  var SideForce : Real = 10;
   [Property]
   var GravityStrength : Real = 0.5;
   var Speed : Real = 0;
@@ -28,6 +28,7 @@ class PlayerController : ZilchComponent
   var Timer : Real = 0;
   [Property]
   var FlapInterval : Real = 0.1;
+  var CanFlap : delegate(player : Cog) : Boolean = null;
   
   function Initialize(init : CogInitializer)
   {
@@ -38,20 +39,23 @@ class PlayerController : ZilchComponent
     Zero.Connect(this.Gamepad, Events.ButtonDown, this.OnButtonDown);
     this.ExactPosition = this.Owner.Transform.Translation;
     this.InitPosition = this.ExactPosition;
-    
+    this.CanFlap = this.Owner.Parent.PlayerAnimationController.CanFlap;
   }
 
   function OnButtonDown(event : GamepadEvent)
   {
-    if(event.Button == Buttons.B && this.Timer > this.FlapInterval)
+    if(event.Button == Buttons.B && this.CanFlap(this.Owner))
     {
+      if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani)
+        this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+      
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
-      this.Timer = 0;  
+      this.Owner.Sprite.CurrentFrame = 1;  
       //Console.WriteLine("tick");
     }
   }
@@ -61,26 +65,77 @@ class PlayerController : ZilchComponent
   }
   function OnKeyDown(event : KeyboardEvent)
   {
-    if(event.Key == Keys.W && this.Timer > this.FlapInterval)
+    if(event.Key == Keys.W && this.CanFlap(this.Owner))
     {
+      if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani)
+        this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+        
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
       if(Zero.Keyboard.KeyIsDown(Keys.A))
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(Zero.Keyboard.KeyIsDown(Keys.D))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
-      this.Timer = 0;  
+      this.Owner.Sprite.CurrentFrame = 1;    
+    }
+    else
+    {
+      Console.WriteLine(this.Owner.Sprite.SpriteSource == SpriteSource.IA_BalloonFighterFlapFull_Ani);
     }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
-  {
+  {  
+    //handles holding of button to fly
+    //had to choose whether to put this in the controller or animation controller because it does both things, difficult to separate
+    if(this.Gamepad.IsButtonHeld(Buttons.A))
+    {
+      this.Owner.PlayerVars.IsWalking = false;  
+      if(this.CanFlap(this.Owner))
+      {
+        if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani)
+          this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+          
+        if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
+        {
+          this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
+          this.Owner.Sprite.FlipX = false;
+        }
+        if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
+        {
+          this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
+          this.Owner.Sprite.FlipX = true;
+        }
+          
+        this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
+        Console.WriteLine("flapped");
+        this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
+        this.Owner.Sprite.CurrentFrame = 1;
+      }
+    }
+    
+    //walking code
+    if(this.Owner.PlayerVars.IsWalking)
+    {
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
+      {
+        this.Owner.Parent.RigidBody.Velocity += Real3(-3,0,0);
+      }
+      
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
+      {
+        this.Owner.Parent.RigidBody.Velocity += Real3(2,0,0);
+      }
+    }
+    
     //loop horizontally
+    //only the M object needs to have a looping script, provided the hierarchy is setup correctly 
     if(this.Transform.WorldTranslation.X > 266)
       this.Owner.Parent.Transform.Translation += Real3(-256,0,0);    
     if(this.Transform.WorldTranslation.X < -10)
       this.Owner.Parent.Transform.Translation += Real3(256,0,0);
     
+    //pythagorean theorum, used for capping speed 
     this.Speed = Math.Sqrt(this.RigidBody.Velocity.X * this.RigidBody.Velocity.X + this.RigidBody.Velocity.Y * this.RigidBody.Velocity.Y);
     if(this.Speed > this.MaxSpeed)
       this.Owner.Parent.RigidBody.Velocity *= 0.95;

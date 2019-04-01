@@ -18,7 +18,8 @@ class PlayerDeathOnZero : ZilchComponent
   {
     if(this.GameSession.GameVars.PlayerBalloons == 0)
     {
-      this.Owner.Destroy();
+      this.Owner.Parent.Destroy();
+      this.Space.LoadLevel(Level.Ded);
     }
   }
 }

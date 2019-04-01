@@ -10,6 +10,7 @@ class GameVars : ZilchComponent
   //PlayerLives
   var CurrentLives : Real = 3;
   var PlayerBalloons : Real = 2;
+  var TouchingGround : Boolean = false;
   
   function Initialize(init : CogInitializer)
   {

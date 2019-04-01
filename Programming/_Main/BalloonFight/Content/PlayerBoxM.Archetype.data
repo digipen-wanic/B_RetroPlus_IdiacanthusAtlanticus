@@ -4,7 +4,7 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 	var Name = "PlayerBoxM"
 	Transform 
 	{
-		var Translation = Real3{-8, -8, 0}
+		var Translation = Real3{-8, -11.5, 0}
 		var Rotation = Quaternion{0, 0, 0, 1}
 		var Scale = Real3{1, 1, 1}
 	}
@@ -16,12 +16,9 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 	{
 		var RotationLocked = true
 	}
-	PlayerDeathOnZero [LocallyAdded]
-	{
-	}
 	Hierarchy [ChildOrderOverride]
 	{
-		Cog [Id:0x5c49e00beda3ed21][InheritId:"5c4ed5487f748aa5:Player"][LocallyAdded]
+		Cog [Id:0x5c4a885d9f21dd4b][InheritId:"5c488628dbdeaa80:PlayerM"][LocallyAdded]
 		{
 			var Name = "PlayerM"
 			Transform 
@@ -108,8 +105,8 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 						var CollisionGroup = "4e740859314e5515:DefaultGroup"
 						var Ghost = false
 						var SendsEvents = true
-						var Offset = Real3{8, 8, 0}
-						var HalfSize = Real3{5, 8, 0.5}
+						var Offset = Real3{8, 11.5, 0}
+						var HalfSize = Real3{5, 11.5, 0.5}
 					}
 					Hierarchy 
 					{
@@ -195,8 +192,8 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 						var CollisionGroup = "4e740859314e5515:DefaultGroup"
 						var Ghost = false
 						var SendsEvents = true
-						var Offset = Real3{8, 8, 0}
-						var HalfSize = Real3{5, 8, 0.5}
+						var Offset = Real3{8, 11.5, 0}
+						var HalfSize = Real3{5, 11.5, 0.5}
 					}
 					Hierarchy 
 					{
