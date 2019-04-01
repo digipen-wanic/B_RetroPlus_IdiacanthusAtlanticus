@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_BalloonFighterFlapFull_Ani"
+		var ResourceId = 0x5c18f89303ef90f5
+		var FrameSizeX = 16
+		var FrameSizeY = 24
+		var FrameCount = 5
+		var FrameDelay = 0.0625
+		var OriginX = 0
+		var OriginY = 24
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = false
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
