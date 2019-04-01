@@ -1,4 +1,4 @@
-class PlayerAnimationControler : ZilchComponent
+class PlayerAnimationController : ZilchComponent
 {
   
   var Gamepad : Gamepad = null;
