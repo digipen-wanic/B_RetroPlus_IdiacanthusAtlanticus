@@ -1,0 +1,18 @@
+class PlayerVars : ZilchComponent
+{
+  var IsWalking : Boolean = false;
+  var PlayerBalloons : Real = 2;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+  
+  function Flap(upforce : Real, sideforce: Real)
+  {
+    
+  }
+}
