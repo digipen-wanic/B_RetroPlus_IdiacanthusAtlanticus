@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_LightiningTopRight_0"
+		var ResourceId = 0x5cc3d4e70e38b6a5
+		var FrameSizeX = 64
+		var FrameSizeY = 64
+		var FrameCount = 5
+		var FrameDelay = 0.0833333358
+		var OriginX = 32
+		var OriginY = 32
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

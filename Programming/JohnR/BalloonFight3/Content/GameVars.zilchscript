@@ -11,6 +11,9 @@ class GameVars : ZilchComponent
   [Property]
   var CurrentLives : Real = 3;
   var TouchingGround : Boolean = false;
+  //LightningBall Directional Vars
+  var LightningBallX : Real = 0;
+  var LightningBallY : Real = 0;
   
   var PlayerExists : Boolean = true;
   

@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 173.983643
+			var Size = 212.504059
 		}
 		EditorCameraController 
 		{
@@ -724,7 +724,7 @@ Level
 		var Name = "Cloud"
 		Transform 
 		{
-			var Translation = Real3{98.1040573, 158.101883, -1.00000978}
+			var Translation = Real3{102.43499, 179.756516, -1.00000978}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -740,16 +740,21 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var SpriteSource = "5cc3d4561d945fa9:IA_LightningTopLeft_0_0"
 			var FlipX = false
 			var FlipY = false
-			var AnimationActive = true
+			var AnimationActive = false
 			var AnimationSpeed = 1
 			var StartFrame = 0
 		}
 		LightningBallSpawner 
 		{
 			var Projectile = "5cfbe18f273d6640:LightningBall"
+			var Thunder = "null"
+			var LightningTopLeft = "null"
+			var LightningTopRight = "null"
+			var LightningBottomLeft = "null"
+			var LightningBottomnRight = "null"
 		}
 	}
 }

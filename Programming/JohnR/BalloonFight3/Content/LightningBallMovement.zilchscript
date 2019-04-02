@@ -44,6 +44,8 @@ class LightningBallMovement : ZilchComponent
     }
     //sets velocity
     this.Owner.RigidBody.Velocity = Math.Normalize(Real3(this.RandomX ,this.RandomY,0)) * this.Speed;
+    this.GameSession.GameVars.LightningBallX = this.RandomX;
+    this.GameSession.GameVars.LightningBallY = this.RandomY;
   }
 
   function OnCollisionStarted(event : CollisionEvent)
