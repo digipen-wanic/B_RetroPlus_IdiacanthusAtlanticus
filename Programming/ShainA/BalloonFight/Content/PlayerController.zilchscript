@@ -55,7 +55,7 @@ class PlayerController : ZilchComponent
         this.Owner.Parent.RigidBody.Velocity += Real3(-this.SideForce,0,0);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
         this.Owner.Parent.RigidBody.Velocity += Real3(this.SideForce,0,0);
-      this.Owner.Sprite.CurrentFrame = 1;  
+      this.Owner.Sprite.CurrentFrame = 1;
       //Console.WriteLine("tick");
     }
   }

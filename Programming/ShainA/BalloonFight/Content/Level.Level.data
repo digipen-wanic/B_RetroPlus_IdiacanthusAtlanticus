@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 577.645386
+			var Size = 705.537537
 		}
 		EditorCameraController 
 		{
@@ -516,7 +516,7 @@ Level
 				Sprite 
 				{
 					var VertexColor = Real4{1, 1, 1, 1}
-					var SpriteSource = "5c01757658475453:IA_Enemy_Fall_SS_Ani"
+					var SpriteSource = "5c4e2a59a44f92a0:x16square"
 				}
 			}
 		}
