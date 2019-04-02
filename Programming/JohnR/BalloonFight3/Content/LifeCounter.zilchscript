@@ -1,0 +1,22 @@
+//John Richardson
+//2/26/2019
+//simple script to destroy owner when player lives reach a certain point
+
+class LifeCounter : ZilchComponent
+{
+  [Property]
+  var KillOnLifeNumber : Real = 2;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.CurrentLives == this.KillOnLifeNumber)
+    {
+      this.Owner.Destroy();
+    }
+  }
+}

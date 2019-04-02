@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "HUDCreator"
+		var ResourceId = 0x5cc3bce0ce0d4ed7
+	}
+}

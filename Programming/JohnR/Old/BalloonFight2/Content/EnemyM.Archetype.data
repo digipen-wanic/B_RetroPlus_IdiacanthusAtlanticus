@@ -1,0 +1,7 @@
+[Version:1]
+Cog [InheritId:"5c48f9ee20b4d2c0:Enemy"]
+{
+	EnemyAI [LocallyAdded]
+	{
+	}
+}

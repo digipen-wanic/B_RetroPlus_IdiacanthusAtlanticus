@@ -1,0 +1,32 @@
+[Version:1]
+Cog [InheritId:"5c4ed5487f748aa5:Player"]
+{
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Rotation = Quaternion{0, 0, 0, 1}
+		var Scale = Real3{1, 1, 1}
+	}
+	PlayerController [LocallyAdded]
+	{
+		var InitPosition = Real3{0, 0, 0}
+		var MaxSpeed = 50
+		var UpForce = 10
+		var SideForce = 10
+		var GravityStrength = 0.5
+		var FlapInterval = 0.100000001
+	}
+	PlayerDeathOnZero [LocallyAdded]
+	{
+		var Speed = 50
+	}
+	BoxCollider [LocallyAdded]
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "5cc271285fd3f592:PlayerFalling"
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+}

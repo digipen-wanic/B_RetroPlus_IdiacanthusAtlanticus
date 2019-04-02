@@ -1,0 +1,96 @@
+[Version:1]
+Cog [InheritId:"5c48f9dd2c48c952:EnemyBox"]
+{
+	Transform 
+	{
+		var Translation = Real3{177.876251, 232.85257, -0.999995649}
+		var Rotation = Quaternion{0, 0, 0, 1}
+		var Scale = Real3{1, 1, 1}
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"]
+		{
+			var Name = "EnemyM"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "5c01757658475453:IA_Enemy_Fall_SS_Ani"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			RigidBody 
+			{
+				var Velocity = Real3{0, 0, 0}
+				var AngularVelocity = Real3{0, 0, 0}
+				var DynamicState = RigidBodyDynamicState.Dynamic
+				var AllowSleep = true
+				var Asleep = false
+				var RotationLocked = true
+				var Mode2D = Mode2DStates.InheritFromSpace
+			}
+			Hierarchy [ChildOrderOverride]
+			{
+				Cog [Id:0x5c48f8f46b49d0da][InheritId:"5c48f9dd2c48c952:EnemyBox"][LocallyAdded]
+				{
+					var Name = "EnemyBoxL"
+					Transform 
+					{
+						var Translation = Real3{256, 0, 0}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{1, 1, 1}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"]
+						{
+							var Name = "EnemyL"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+							}
+						}
+					}
+				}
+				Cog [Id:0x5c48f8c26f1bc990][InheritId:"5c48f9dd2c48c952:EnemyBox"][LocallyAdded]
+				{
+					Transform 
+					{
+						var Translation = Real3{-256, 0, 0}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{1, 1, 1}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"]
+						{
+							var Name = "EnemyR"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

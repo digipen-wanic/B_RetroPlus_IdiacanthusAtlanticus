@@ -1,0 +1,36 @@
+//////////////////////
+//Name: John Richardson
+//Date Created: 3/29/2019
+//Date Edited: 3/29/2019
+//Description: Kills player when lives equal zero
+//////////////////////
+
+
+
+class PlayerDeathOnZero : ZilchComponent
+{
+  [Property]
+  var Speed : Real = 50;
+  
+  [Property]
+  var FallingAnimation : SpriteSource = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.PlayerBalloons == 0)
+    {
+      this.Owner.RigidBody.Velocity = Real3(0, -1 * this.Speed, 0);
+      this.Owner.BoxCollider.CollisionGroup = CollisionGroup.PlayerFalling; 
+      this.Owner.Sprite.SpriteSource = this.FallingAnimation;
+      if(this.Owner.Transform.Translation.Y <= 15)
+      {
+        this.Owner.Destroy();
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+/********************************
+Edited By: John Richardson 
+Date: 12/20/18
+Brief Description: This will make a level in a new space above the current level to serve as a HUD 
+(other level should have a see-through background, forward viewport events , and a render layer above)
+*******************************/
+
+class HUDCreator : ZilchComponent
+{
+  //Level the HUD is
+[Property]
+var HUDLevel : Level = null;
+//Space to run the hud with
+var HUDSpace : Space = null;
+  function Initialize(init : CogInitializer)
+  {
+    this.HUDSpace = this.GameSession.CreateNamedSpace("HUDSpace", Archetype.Space);
+    if(this.HUDSpace != null)
+    {
+      this.HUDSpace.LoadLevel(this.HUDLevel);
+    }
+  }
+  //should destroy the hudspace if this object is being destroyed.
+  function Destroyed()
+  {
+    
+    if(this.HUDSpace != null && !this.HUDSpace.MarkedForDestruction)
+    {
+    this.HUDSpace.Destroy();
+    }
+  }
+}

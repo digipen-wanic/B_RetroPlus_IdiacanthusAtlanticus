@@ -1,0 +1,17 @@
+class LoadMainLevel : ZilchComponent
+{
+  var Gamepad : Gamepad = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Gamepad = Zero.Gamepads.GetGamePad(0);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(Zero.Keyboard.KeyIsDown(Keys.E) || this.Gamepad.IsButtonHeld(Buttons.Start))
+    {
+      this.Space.LoadLevel(Level.Level);
+    }
+  }
+}
