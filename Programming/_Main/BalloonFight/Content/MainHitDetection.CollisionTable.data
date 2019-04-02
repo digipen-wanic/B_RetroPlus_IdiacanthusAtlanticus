@@ -3,9 +3,8 @@ CollisionTable
 {
 	var RegisteredGroups = Array
 	{
+		"5cc27c5865f307e3:PlayerFalling"
 		"4e740859314e5515:DefaultGroup"
-		"5cfe82f7e3744ae4:Player"
-		"5c51dbda799897ad:PlayerSpawner"
 		"5cfe82dfe63f73cf:LightningBallSpawner"
 		"5cfe7e358a7b5d25:LightningBall"
 	}
@@ -14,7 +13,7 @@ CollisionTable
 		Object
 		{
 			var TypeA = "5cfe7e358a7b5d25:LightningBall"
-			var TypeB = "5c51dbda799897ad:PlayerSpawner"
+			var TypeB = "4e740859314e5515:DefaultGroup"
 			var SkipResolution = false
 			var SkipDetectingCollision = true
 			var StartEvent = false
@@ -36,7 +35,7 @@ CollisionTable
 		Object
 		{
 			var TypeA = "5cfe82dfe63f73cf:LightningBallSpawner"
-			var TypeB = "5cfe82f7e3744ae4:Player"
+			var TypeB = "4e740859314e5515:DefaultGroup"
 			var SkipResolution = false
 			var SkipDetectingCollision = false
 			var StartEvent = false
@@ -48,6 +47,39 @@ CollisionTable
 		{
 			var TypeA = "4e740859314e5515:DefaultGroup"
 			var TypeB = "5cfe82dfe63f73cf:LightningBallSpawner"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cfe82dfe63f73cf:LightningBallSpawner"
+			var TypeB = "5cc27c5865f307e3:PlayerFalling"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cfe7e358a7b5d25:LightningBall"
+			var TypeB = "5cc27c5865f307e3:PlayerFalling"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "4e740859314e5515:DefaultGroup"
+			var TypeB = "5cc27c5865f307e3:PlayerFalling"
 			var SkipResolution = false
 			var SkipDetectingCollision = true
 			var StartEvent = false

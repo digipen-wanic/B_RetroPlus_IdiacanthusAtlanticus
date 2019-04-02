@@ -1,11 +1,16 @@
 class EnemyAI : ZilchComponent
 {
+  var Timer2 : Real = 0;
   var Timer : Real = 0;
   [Dependency]
   var RigidBody : RigidBody = null;
   [Dependency]
   var Transform : Transform = null;
   var Rand : Random = Random();
+  var Direction : Real = 0;
+  [Property]
+  var SpeedCap : Real = 50;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -18,11 +23,59 @@ class EnemyAI : ZilchComponent
       this.Owner.Parent.Transform.Translation += Real3(-256,0,0);    
     if(this.Transform.WorldTranslation.X < -10)
       this.Owner.Parent.Transform.Translation += Real3(256,0,0);
+    
+    this.Direction = this.Rand.DieRoll(8);
+    //Console.WriteLine(this.Direction);
+    if(this.Direction == 1)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(0,1,0);
+    }
+    if(this.Direction == 2)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(1,1,0);
+    }
+    if(this.Direction == 3)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(1,0,0);
+    }
+    if(this.Direction == 4)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(1,-1,0);
+    }
+    if(this.Direction == 5)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(0,-1,0);
+    }
+    if(this.Direction == 6)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(-1,-1,0);
+    }
+    if(this.Direction == 7)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(-1,0,0);
+    }
+    if(this.Direction == 8)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(-1,1,0);
+    }
+      
+      
     if(this.Transform.WorldTranslation.Y < 150)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(this.Rand.Range(-10,10) ,2,0);
       this.Timer = 0;
     }
+    if(this.Transform.WorldTranslation.Y > 240)
+    {
+      this.Owner.Parent.RigidBody.Velocity += Real3(this.Rand.Range(-10,10) ,-10,0);
+      this.Timer = 0;
+      Console.WriteLine("you're going down lebowski");
+    }
+    if(Math.Length(this.Owner.Parent.RigidBody.Velocity.XY) > this.SpeedCap)
+    {
+      this.Owner.Parent.RigidBody.Velocity *= 0.95;
+    }
     this.Timer += event.Dt;
+    this.Timer +=event.Dt;
   }
 }
