@@ -1,0 +1,23 @@
+class ScoreText : ZilchComponent
+{
+  [Dependency]
+  var SpriteText : SpriteText = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.CurrentScore == 0)
+    {
+        
+    }
+    else
+    {
+    this.SpriteText.Text = "`this.GameSession.GameVars.CurrentScore`";
+    }
+  }
+}

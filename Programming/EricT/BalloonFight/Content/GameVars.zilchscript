@@ -1,0 +1,20 @@
+//////////////////////
+//Name: John Richardson
+//Date Created: 3/28/2019
+//Date Edited: 3/28/2019
+//Description: Global Variables are stored here
+//////////////////////
+
+class GameVars : ZilchComponent
+{
+  //PlayerLives
+  var CurrentLives : Real = 3;
+  var PlayerBalloons : Real = 2;
+  var TouchingGround : Boolean = false;
+  var CurrentScore : Real = 000000;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.CurrentScore = 000000;
+  }
+}
