@@ -750,11 +750,12 @@ Level
 		LightningBallSpawner 
 		{
 			var Projectile = "5cfbe18f273d6640:LightningBall"
-			var Thunder = "null"
-			var LightningTopLeft = "null"
-			var LightningTopRight = "null"
-			var LightningBottomLeft = "null"
-			var LightningBottomnRight = "null"
+			var Thunder = "5cc3d670ff0be13a:IA_Thunder_0"
+			var LightningTopLeft = "5cc3d4561d945fa9:IA_LightningTopLeft_0_0"
+			var LightningTopRight = "5cc3db06e9bb677b:IA_LightiningTopRight_1"
+			var LightningBottomLeft = "5cc3d4c330acef81:IA_LightningBottomLeft_0"
+			var LightningBottomnRight = "5cc3d4d135290e87:IA_LightningBottomRight_0"
+			var DefaultCloud = "5cc3d2d3529f7448:IA_BaseCloud"
 		}
 	}
 }
