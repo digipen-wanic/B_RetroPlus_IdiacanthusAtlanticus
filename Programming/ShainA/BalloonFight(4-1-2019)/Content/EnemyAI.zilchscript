@@ -9,7 +9,7 @@ class EnemyAI : ZilchComponent
   var Rand : Random = Random();
   var Direction : Real = 0;
   [Property]
-  var SpeedCap : Real = 50;
+  var SpeedCap : Real = 200;
   
   function Initialize(init : CogInitializer)
   {
@@ -59,6 +59,10 @@ class EnemyAI : ZilchComponent
       this.Owner.Parent.RigidBody.Velocity += Real3(-1,1,0);
     }
       
+    if(Math.Length(this.Owner.Parent.RigidBody.Velocity.XY) > this.SpeedCap)
+    {
+      this.Owner.Parent.RigidBody.Velocity *= 0.95;
+    }
       
     if(this.Transform.WorldTranslation.Y < 150)
     {
@@ -67,13 +71,8 @@ class EnemyAI : ZilchComponent
     }
     if(this.Transform.WorldTranslation.Y > 240)
     {
-      this.Owner.Parent.RigidBody.Velocity += Real3(this.Rand.Range(-10,10) ,-10,0);
+      this.Owner.Parent.RigidBody.Velocity -= Real3(this.Rand.Range(-10,10) ,-10,0);
       this.Timer = 0;
-      Console.WriteLine("you're going down lebowski");
-    }
-    if(Math.Length(this.Owner.Parent.RigidBody.Velocity.XY) > this.SpeedCap)
-    {
-      this.Owner.Parent.RigidBody.Velocity *= 0.95;
     }
     this.Timer += event.Dt;
     this.Timer +=event.Dt;

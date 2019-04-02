@@ -1,0 +1,182 @@
+/*
+Yuval & Shain
+
+THIS GOES ON THE BOX TO ACCURATELY DETECT COLLISIONS
+*/
+
+class PlayerAnimationController : ZilchComponent
+{
+  
+  var Gamepad : Gamepad = null;
+  var PlayerChild : Cog = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);    
+    this.Gamepad = Zero.Gamepads.GetGamePad(0);
+    Zero.Connect(this.Gamepad, Events.ButtonDown, this.OnButtonDown);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    foreach(var child in this.Owner.Children.All)
+    {
+      this.PlayerChild = child;
+    }
+  }
+
+  //Yuval
+  function OnCollisionEnded(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name.Contains("WalkPlatform"))
+    {
+      //Make sure we are trying to access the playervars component on the main player, instead of a clone
+      //Also double check that the box for realsies isn't colliding with anything. this includes the case where the player walks wrapped around the screen 
+      if(this.PlayerChild != null && this.Owner.BoxCollider.ContactCount == 0)
+      {
+        if(this.PlayerChild.Name == "PlayerM")
+        {
+          this.PlayerChild.PlayerVars.IsWalking = false;
+          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+          this.PlayerChild.Sprite.CurrentFrame = 4;
+          Console.WriteLine("end");
+          Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);
+        }
+        //this if statement diffrenciates between walking off of a platform and taking off vertically. if the player is holding a propulsion button at this time, it is indicative that they are taking off
+        if(this.Gamepad.IsButtonHeld(Buttons.B) || Zero.Keyboard.KeyIsDown(Keys.W))
+        {
+          this.PlayerChild.Sprite.CurrentFrame = 0;
+        }
+        //timing for holding must be different as to maintain a constant interval inbetween flaps. if we start at frame 0, the first flap will be uncharacteristically longer
+        else if(this.Gamepad.IsButtonHeld(Buttons.A))
+        {
+          this.PlayerChild.Sprite.CurrentFrame = 1;
+        }   
+      }
+         
+    }
+  }
+
+  function OnCollisionPersisted(event : CollisionEvent)
+  {
+    
+  }
+
+  //Yuval
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name.Contains("WalkPlatform"))
+      
+    {
+      if(this.PlayerChild.Name == "PlayerM")
+      {
+        this.PlayerChild.PlayerVars.IsWalking = true;
+        Console.WriteLine("start");
+      }
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterIdleFull_Ani;
+    }
+    //Console.WriteLine("`event.OtherObject.Transform.Translation.Y` `this.PlayerChild.Transform.Translation.Y`");
+    if(event.OtherObject.Name.Contains("Enemy") && this.Owner.Name == "PlayerBoxM")
+    {
+      if(event.OtherObject.Transform.WorldTranslation.Y < this.PlayerChild.Transform.WorldTranslation.Y - 10)
+      {
+        event.OtherObject.Destroy();
+      }
+      else if(event.OtherObject.Transform.WorldTranslation.Y > this.PlayerChild.Transform.WorldTranslation.Y + 10)
+      {
+        this.PlayerChild.PlayerVars.PlayerBalloons -= 1;
+        Console.WriteLine("hit!");
+      }
+    }
+  }
+
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Parent != null)
+    {
+      this.PlayerChild.Sprite.SpriteSource = this.Owner.Parent.Sprite.SpriteSource;
+      this.PlayerChild.Sprite.CurrentFrame = this.Owner.Parent.Sprite.CurrentFrame;
+      this.PlayerChild.Sprite.FlipX        = this.Owner.Parent.Sprite.FlipX;
+    }
+    
+    //walking animations
+    else
+    {
+      if(this.PlayerChild.PlayerVars.IsWalking)
+      {
+        if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
+        {
+          if(this.PlayerChild.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterWalkFull_Ani)
+            this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterWalkFull_Ani;
+          this.PlayerChild.Sprite.FlipX = false;
+        }
+        else if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
+        {
+          if(this.PlayerChild.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterWalkFull_Ani)
+            this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterWalkFull_Ani;
+          this.PlayerChild.Sprite.FlipX = true;
+        }
+        else
+        {
+          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterIdleFull_Ani;
+          //Console.WriteLine(this.PlayerChild.PlayerVars.IsWalking);
+        }
+      }
+    }
+  }
+  
+  //Shain | Yuval
+  function OnKeyDown(event : KeyboardEvent)
+  {
+    if(event.Key == Keys.W && this.CanFlap(this.PlayerChild))
+    {
+      if(Zero.Keyboard.KeyIsDown(Keys.A))
+        this.PlayerChild.Sprite.FlipX = false;
+      if(Zero.Keyboard.KeyIsDown(Keys.D))
+        this.PlayerChild.Sprite.FlipX = true;
+      
+        
+      //Console.WriteLine("tick");
+    }
+  }
+  
+  //Shain | Yuval
+  function OnButtonDown(event : GamepadEvent)
+  {
+    if(event.Button == Buttons.B && this.CanFlap(this.PlayerChild))
+    {
+      
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))
+        this.PlayerChild.Sprite.FlipX = false;
+      if(this.Gamepad.IsButtonHeld(Buttons.DpadRight))
+        this.PlayerChild.Sprite.FlipX = true;
+        
+      //Console.WriteLine("tick");
+    }
+    else if(event.Button != Buttons.B)
+    {
+      //this.Owner.Sprite.SpriteSource = SpriteSource.;
+    }
+  }
+  
+  
+  //Yuval
+  //Function checks whether it is OK to flap. you have to be on at least frame 3, which is the third frame in the sequence starting from 1, but will not be shown ddue to instant updating of the animation 
+  function CanFlap(player : Cog) : Boolean
+  {
+    return
+    ( 
+      (
+        player.Sprite.SpriteSource == SpriteSource.IA_BalloonFighterFlapFull_Ani 
+        &&
+        player.Sprite.CurrentFrame > 2
+      )
+      
+      ||
+      
+      (
+        player.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani
+      )
+    );
+  }
+}
