@@ -81,7 +81,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{149.740448, 124.824142, 18.9999905}
+			var Translation = Real3{148.455292, 134.462799, 18.9999905}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 317.018677
+			var Size = 173.983643
 		}
 		EditorCameraController 
 		{
@@ -143,7 +143,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{149.740448, 124.824142, -1.00000978}
+			var LookTarget = Real3{148.455292, 134.462799, -1.00000978}
 			var MoveSensitivity = 1
 		}
 	}
@@ -231,18 +231,8 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		Hierarchy 
-		{
-			Cog [Id:0x5c4a885d9f21dd4b][InheritId:"5c488628dbdeaa80:PlayerM"][ContextId:6]
-			{
-				PlayerDeathOnZero 
-				{
-					var Speed = 50
-				}
-			}
-		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:6]
 	{
 		var Name = "Platform_Right"
 		Transform 
@@ -290,7 +280,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:7]
 	{
 		var Name = "Platform_RightOut"
 		Transform 
@@ -338,7 +328,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:8]
 	{
 		var Name = "Platform_Center"
 		Transform 
@@ -386,7 +376,7 @@ Level
 			var HalfSize = Real3{56, 3, 2.5}
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:9]
 	{
 		var Name = "Platform_Left"
 		Transform 
@@ -434,7 +424,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:10]
 	{
 		var Name = "Platform_LeftOut"
 		Transform 
@@ -482,7 +472,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:11]
 	{
 		var Name = "Balloonbattlemainstage"
 		Transform 
@@ -511,7 +501,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:13]
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:12]
 	{
 		Transform 
 		{
@@ -525,7 +515,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:14]
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:13]
 			{
 				Transform 
 				{
@@ -542,7 +532,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:15]
+	Cog [ContextId:14]
 	{
 		var Name = "WalkPlatform_Right"
 		Transform 
@@ -590,7 +580,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:16]
+	Cog [ContextId:15]
 	{
 		var Name = "WalkPlatform_Left"
 		Transform 
@@ -638,7 +628,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:17]
+	Cog [ContextId:16]
 	{
 		var Name = "WalkPlatform_Center"
 		Transform 
@@ -686,7 +676,7 @@ Level
 			var HalfSize = Real3{55, 1, 0.5}
 		}
 	}
-	Cog [ContextId:18]
+	Cog [ContextId:17]
 	{
 		var Name = "RespawnBlock"
 		Transform 
@@ -718,6 +708,48 @@ Level
 		{
 			var Delay = 3
 			var Player = "5c48f8255388f5c3:PlayerBoxM"
+		}
+	}
+	Cog [InheritId:"5cfbe18f273d6640:LightningBall"][ContextId:18]
+	{
+		Transform 
+		{
+			var Translation = Real3{148.455292, 134.462799, -1.00000978}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [ContextId:19]
+	{
+		var Name = "Cloud"
+		Transform 
+		{
+			var Translation = Real3{98.1040573, 158.101883, -1.00000978}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		LightningBallSpawner 
+		{
+			var Projectile = "5cfbe18f273d6640:LightningBall"
 		}
 	}
 }

@@ -16,6 +16,9 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 	{
 		var RotationLocked = true
 	}
+	PlayerKill [LocallyAdded]
+	{
+	}
 	Hierarchy [ChildOrderOverride]
 	{
 		Cog [Id:0x5c4a885d9f21dd4b][InheritId:"5c488628dbdeaa80:PlayerM"][LocallyAdded]
@@ -67,6 +70,7 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 			}
 			PlayerDeathOnZero 
 			{
+				var Speed = 50
 				var FallingAnimation = "5c017de4bfcdc380:IA_BalloonFighterFalling_Ani"
 			}
 			Hierarchy [ChildOrderOverride]

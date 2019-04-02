@@ -4,7 +4,7 @@ Cog
 	var Name = "LightningBall"
 	Transform 
 	{
-		var Translation = Real3{241.054047, 229.806305, 0}
+		var Translation = Real3{148.455292, 134.462799, -1.00000978}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -18,7 +18,7 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{0, 1, 0.970000029, 1}
+		var VertexColor = Real4{0, 0.7900002, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
 		var SpriteSource = "5c4e2a59a44f92a0:x16square"
 		var FlipX = false
@@ -27,27 +27,90 @@ Cog
 		var AnimationSpeed = 1
 		var StartFrame = 0
 	}
-	LightningBallMovement 
+	SphereCollider 
 	{
-		var Speed = 50
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "5cfd395d54b4ed83:Bounce"
+		var CollisionGroup = "5cfe7e358a7b5d25:LightningBall"
+		var Offset = Real3{8, 8, 0}
+		var Radius = 8
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{1, 1, 0}
+		var Velocity = Real3{0, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true
 		var Asleep = false
-		var RotationLocked = true
+		var RotationLocked = false
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
-	BoxCollider 
+	LightningBallMovement 
 	{
-		var Ghost = false
-		var SendsEvents = true
-		var Material = "5cfd3a43c4f186ee:Bounce"
-		var CollisionGroup = "5cfd2fa0d9c33344:Collisions"
-		var Offset = Real3{8, 8, 0}
-		var HalfSize = Real3{8, 8, 0.5}
+		var Speed = 40
+	}
+	IgnoreSpaceEffects 
+	{
+		var IgnoreDrag = true
+		var IgnoreFlow = true
+		var IgnoreForce = true
+		var IgnoreGravity = true
+		var IgnorePointForce = true
+		var IgnorePointGravity = true
+		var IgnoreThrust = true
+		var IgnoreVortex = true
+		var IgnoreWind = true
+		var IgnoreTorque = true
+		var IgnoreBuoyancy = true
+		var IgnoreCustom = true
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5cc3d102ed4c7c50]
+		{
+			var Name = "LightningBallChild"
+			Transform 
+			{
+				var Translation = Real3{17.2565308, 1.52587891e-05, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{0, 0.0700001717, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "5c4e2a59a44f92a0:x16square"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+			RoundPosition 
+			{
+			}
+			RigidSync 
+			{
+			}
+			RigidBody 
+			{
+				var Velocity = Real3{0, 0, 0}
+				var AngularVelocity = Real3{0, 0, 0}
+				var DynamicState = RigidBodyDynamicState.Dynamic
+				var AllowSleep = true
+				var Asleep = false
+				var RotationLocked = false
+				var Mode2D = Mode2DStates.InheritFromSpace
+			}
+		}
 	}
 }
