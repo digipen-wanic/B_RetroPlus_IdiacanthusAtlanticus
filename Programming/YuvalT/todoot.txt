@@ -1,0 +1,22 @@
+SHOOT TO DOOT
+
+HUD space
+	Art implementation (0-1hrs)
+	Score update (0-1hrs)
+	Pausing connection (1-2hrs)
+	
+WALKING
+	Sliding (0-1hrs)
+
+PLAYER
+	Balloon sprite update (1hr?)
+
+ENEMIES
+	Correct flying AI (2-3hrs)
+	Score functionality (0-1hrs)
+	Parachute implementation (1-2hrs)
+	Pumping (0-1hrs)
+		
+"MERGING"
+	Actually merging (0hrs)
+	Fixing code (1-3hrs)
