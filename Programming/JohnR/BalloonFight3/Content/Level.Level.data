@@ -81,7 +81,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{154.924622, 149.794174, 18.9999905}
+			var Translation = Real3{122.420303, 87.229248, 18.9999886}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 116.624771
+			var Size = 638.39679
 		}
 		EditorCameraController 
 		{
@@ -143,7 +143,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{154.924622, 149.794174, -1.00000978}
+			var LookTarget = Real3{122.420303, 87.229248, -1.00001085}
 			var MoveSensitivity = 1
 		}
 	}
@@ -214,7 +214,7 @@ Level
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 60
-			var Size = 240
+			var Size = 500
 		}
 		SoundListener 
 		{
@@ -227,7 +227,7 @@ Level
 		var Name = "PlayerBoxM"
 		Transform 
 		{
-			var Translation = Real3{125.511139, 115.602386, -1}
+			var Translation = Real3{58.1296692, 80.244545, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -756,6 +756,40 @@ Level
 			var LightningBottomLeft = "5cc3d4c330acef81:IA_LightningBottomLeft_0"
 			var LightningBottomnRight = "5cc3d4d135290e87:IA_LightningBottomRight_0"
 			var DefaultCloud = "5cc3d2d3529f7448:IA_BaseCloud"
+		}
+	}
+	Cog [ContextId:20]
+	{
+		var Name = "Water"
+		Transform 
+		{
+			var Translation = Real3{127, 15, -1.00001085}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5cc50e7838e20bcb:IA_Water_Front"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		FishSpawner 
+		{
+			var Delay = 2
+			var Fish = "5cc51800241e1da5:Fish"
 		}
 	}
 }

@@ -1,0 +1,59 @@
+///////////////////////////////////////
+//Name: John Richardson
+//Date Created : 4/3/2019
+//Date Edited: 4/3/2019
+//Description: Spawns the Fish
+//Version: 1.0
+//////////////////////////////////////
+
+class FishSpawner : ZilchComponent
+{
+  var TimerEnable : Boolean = false;
+  
+  var Timer : Real = 0;
+  [Property]
+  var Delay : Real = 2;
+  
+  [Property]
+  var Fish : Archetype = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.PlayerKill != null)
+    {
+      this.TimerEnable = true;
+    }
+    else
+    {
+      this.TimerEnable = false;
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.PlayerYCoordinate <= 50)
+    {
+      this.Timer += event.Dt;
+      
+      if(this.Timer >= this.Delay && this.GameSession.GameVars.FishExists == false)
+      {
+        //Spawns the fish
+        this.Space.CreateAtPosition(this.Fish, Real3(this.GameSession.GameVars.PlayerXCoordinate,this.Owner.Transform.Translation.Y, this.Owner.Transform.Translation.Z));
+        //Resets Timer
+        this.Timer = 0;
+        this.GameSession.GameVars.FishExists = true;
+      }
+    }
+    //Resets timer when timer is disabled
+    if(this.GameSession.GameVars.PlayerYCoordinate >= 50)
+    {
+      this.Timer = 0;
+    }
+  }
+}

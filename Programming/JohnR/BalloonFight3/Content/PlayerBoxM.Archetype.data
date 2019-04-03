@@ -4,7 +4,7 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 	var Name = "PlayerBoxM"
 	Transform 
 	{
-		var Translation = Real3{125.511139, 115.602386, -1}
+		var Translation = Real3{58.1296692, 80.244545, -1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 		var Scale = Real3{1, 1, 1}
 	}
@@ -17,6 +17,12 @@ Cog [InheritId:"5c49e3f172a9c504:PlayerBox"]
 		var RotationLocked = true
 	}
 	PlayerKill [LocallyAdded]
+	{
+	}
+	PlayerCoordinateGenerator [LocallyAdded]
+	{
+	}
+	FishAteOwner [LocallyAdded]
 	{
 	}
 	Hierarchy [ChildOrderOverride]

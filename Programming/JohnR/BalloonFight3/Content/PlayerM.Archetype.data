@@ -18,6 +18,10 @@ Cog [InheritId:"5c4ed5487f748aa5:Player"]
 	}
 	PlayerDeathOnZero [LocallyAdded]
 	{
+		var Speed = 50
+		var FallingAnimation = "5c017de4bfcdc380:IA_BalloonFighterFalling_Ani"
+		var KillHeight = 10
+		var TerminalVelocity = 100
 	}
 	PlayerVars [LocallyAdded]
 	{

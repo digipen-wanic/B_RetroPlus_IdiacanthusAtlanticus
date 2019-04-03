@@ -26,7 +26,7 @@ class PlayerDeathOnZero : ZilchComponent
   var PlayerState : Boolean = true;
   
   var PlaySound : Boolean = true;
-  
+  //acceleration variables
   var Accel : Real = 0;
   var Accel2 : Real = 0;
   [Property]
