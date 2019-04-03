@@ -6,9 +6,34 @@ class EnemyAnimationController : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     foreach(var child in this.Owner.Children.All)
     {
       this.PlayerChild = child;
+    }
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name.Contains("PlayerBox"))
+    {
+      //the bird is above the player
+      if(this.Owner.Transform.WorldTranslation.Y - event.OtherObject.Transform.WorldTranslation.Y > 10)
+      {
+        
+      }
+      
+      //the bird gonna die
+      if(this.Owner.Transform.WorldTranslation.Y - event.OtherObject.Transform.WorldTranslation.Y < -10)
+      {
+        this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
+        this.Owner.RigidBody.Velocity = Real3(0,0,0);
+        
+        if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Parachute_SS_Ani)
+        {
+          
+        }
+      }
     }
   }
 
@@ -19,6 +44,17 @@ class EnemyAnimationController : ZilchComponent
       this.PlayerChild.Sprite.SpriteSource = this.Owner.Parent.Sprite.SpriteSource;
       this.PlayerChild.Sprite.CurrentFrame = this.Owner.Parent.Sprite.CurrentFrame;
       this.PlayerChild.Sprite.FlipX        = this.Owner.Parent.Sprite.FlipX;
+    }
+    
+    if(this.Owner.RigidBody.Velocity.X > 0)
+    {
+      this.PlayerChild.Sprite.FlipX = true;
+      //Console.WriteLine("fliped");
+    }
+    else
+    {
+      this.PlayerChild.Sprite.FlipX = false;
+      //Console.WriteLine("nope");
     }
   }
 }

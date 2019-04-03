@@ -38,8 +38,8 @@ class PlayerAnimationController : ZilchComponent
           this.PlayerChild.PlayerVars.IsWalking = false;
           this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
           this.PlayerChild.Sprite.CurrentFrame = 4;
-          Console.WriteLine("end");
-          Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);
+          //Console.WriteLine("end");
+          //Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);
         }
         //this if statement diffrenciates between walking off of a platform and taking off vertically. if the player is holding a propulsion button at this time, it is indicative that they are taking off
         if(this.Gamepad.IsButtonHeld(Buttons.B) || Zero.Keyboard.KeyIsDown(Keys.W))
@@ -70,7 +70,7 @@ class PlayerAnimationController : ZilchComponent
       if(this.PlayerChild.Name == "PlayerM")
       {
         this.PlayerChild.PlayerVars.IsWalking = true;
-        Console.WriteLine("start");
+        //Console.WriteLine("start");
       }
       this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterIdleFull_Ani;
     }
@@ -79,12 +79,12 @@ class PlayerAnimationController : ZilchComponent
     {
       if(event.OtherObject.Transform.WorldTranslation.Y < this.PlayerChild.Transform.WorldTranslation.Y - 10)
       {
-        event.OtherObject.Destroy();
+        //event.OtherObject.Destroy();
       }
       else if(event.OtherObject.Transform.WorldTranslation.Y > this.PlayerChild.Transform.WorldTranslation.Y + 10)
       {
         this.PlayerChild.PlayerVars.PlayerBalloons -= 1;
-        Console.WriteLine("hit!");
+        //Console.WriteLine("hit!");
       }
     }
   }
