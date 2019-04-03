@@ -29,6 +29,7 @@ class EnemyAI : ZilchComponent
     if(this.Direction == 1)
     {
       this.Owner.Parent.RigidBody.Velocity += Real3(0,1,0);
+      this.Owner.Parent.Sprite.SpriteSource = SpriteSource.IA_Enemy_Flap_SS_Ani;
     }
     if(this.Direction == 2)
     {
