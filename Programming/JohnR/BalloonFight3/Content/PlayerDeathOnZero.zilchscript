@@ -25,6 +25,8 @@ class PlayerDeathOnZero : ZilchComponent
   
   var PlayerState : Boolean = true;
   
+  var PlaySound : Boolean = true;
+  
   var Accel : Real = 0;
   var Accel2 : Real = 0;
   [Property]
@@ -39,6 +41,11 @@ class PlayerDeathOnZero : ZilchComponent
   {
     if(this.Owner.PlayerVars.PlayerBalloons == 0)
     {
+      if(this.PlaySound == true)
+      {
+        this.Space.SoundSpace.PlayCue(SoundCue.ISfall);
+        this.PlaySound = false;
+      }
       this.Timer += event.Dt;
       if(this.Timer <= this.Delay)
       {
@@ -64,6 +71,7 @@ class PlayerDeathOnZero : ZilchComponent
         this.Owner.Parent.Destroy();
         this.GameSession.GameVars.PlayerExists = false;
         this.Timer = 0;
+        this.PlaySound = true;
       }
     }
   }

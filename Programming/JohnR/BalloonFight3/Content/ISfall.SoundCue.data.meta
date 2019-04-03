@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "ISfall"
+		var ResourceId = 0x5c687a517fe92ca1
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

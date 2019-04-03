@@ -4,13 +4,13 @@ Cog
 	var Name = "LightningBall"
 	Transform 
 	{
-		var Translation = Real3{148.455292, 134.462799, -1.00000978}
+		var Translation = Real3{150, 150, -1.00000978}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
 	{
-		var Visible = true
+		var Visible = false
 		var ViewCulling = true
 		var VisibilityEvents = true
 		var OverrideBoundingBox = false
@@ -34,7 +34,7 @@ Cog
 		var Material = "5cfd395d54b4ed83:Bounce"
 		var CollisionGroup = "5cfe7e358a7b5d25:LightningBall"
 		var Offset = Real3{8, 8, 0}
-		var Radius = 8
+		var Radius = 4
 	}
 	RigidBody 
 	{
@@ -49,6 +49,7 @@ Cog
 	LightningBallMovement 
 	{
 		var Speed = 40
+		var BounceSound = "null"
 	}
 	IgnoreSpaceEffects 
 	{
@@ -65,6 +66,21 @@ Cog
 		var IgnoreBuoyancy = true
 		var IgnoreCustom = true
 	}
+	SoundEmitter 
+	{
+		var Volume = 1
+		var Pitch = 0
+		var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+		var Directional = false
+		var EmitAngle = 90
+		var RearVolume = 0.200000003
+	}
+	SimpleSound 
+	{
+		var StartPlaying = false
+		var Positional = false
+		var Cue = "5c68641ef3033586:ISbounce"
+	}
 	Hierarchy 
 	{
 		Cog [Id:0x5cc3d102ed4c7c50]
@@ -72,7 +88,7 @@ Cog
 			var Name = "LightningBallChild"
 			Transform 
 			{
-				var Translation = Real3{17.2565308, 1.52587891e-05, 0}
+				var Translation = Real3{8, 8, 0}
 				var Scale = Real3{1, 1, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
@@ -86,9 +102,9 @@ Cog
 				var LocalAabbHalfExtents = Real3{1, 1, 1}
 				var GroupSortValue = 0
 				var Material = "582c575af53d18c9:AlphaSprite"
-				var VertexColor = Real4{0, 0.0700001717, 1, 1}
+				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
-				var SpriteSource = "5c4e2a59a44f92a0:x16square"
+				var SpriteSource = "5cc3d3ed7a506704:IA_Spark_0"
 				var FlipX = false
 				var FlipY = false
 				var AnimationActive = true

@@ -19,6 +19,9 @@ class LightningBallMovement : ZilchComponent
   var RandomX : Real = 0;
   var RandomY : Real = 0;
   
+  [Property]
+  var BounceSound : SoundCue = null;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
@@ -50,6 +53,8 @@ class LightningBallMovement : ZilchComponent
 
   function OnCollisionStarted(event : CollisionEvent)
   {
+    //plays sound on collision
+    this.Space.SoundSpace.PlayCue(SoundCue.ISbounce);
     if(event.OtherObject.PlayerKill != null) 
     {
       event.OtherObject.PlayerAnimationController.PlayerChild.PlayerVars.PlayerBalloons = 0;
