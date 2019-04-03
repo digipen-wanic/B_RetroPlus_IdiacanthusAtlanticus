@@ -11,6 +11,7 @@ class GameVars : ZilchComponent
   [Property]
   var CurrentLives : Real = 3;
   var TouchingGround : Boolean = false;
+  var CurrentScore : Integer = 0;
   
   var PlayerExists : Boolean = true;
   

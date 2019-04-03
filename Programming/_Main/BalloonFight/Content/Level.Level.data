@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{144.207291, 86.7725372, 10.0000019}
+			var Translation = Real3{127.5, 101.627098, 19}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 705.537537
+			var Size = 577.645386
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{144.207291, 86.7725372, -9.99999809}
+			var LookTarget = Real3{127.5, 101.627098, -1}
 			var MoveSensitivity = 1
 		}
 	}
@@ -273,7 +273,7 @@ Level
 			var Material = "5cfd395d54b4ed83:Bounce"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{32.5, 6, 2.5}
+			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
 	Cog [ContextId:7]
@@ -473,7 +473,7 @@ Level
 		var Name = "Balloonbattlemainstage"
 		Transform 
 		{
-			var Translation = Real3{127.5, 103, -1}
+			var Translation = Real3{127.5, 103.697815, -1}
 			var Scale = Real3{0.74000001, 0.800000012, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -501,7 +501,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{177.876251, 232.85257, -0.999995649}
+			var Translation = Real3{90.9243622, 114.882751, -0.999995649}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -516,7 +516,7 @@ Level
 				Sprite 
 				{
 					var VertexColor = Real4{1, 1, 1, 1}
-					var SpriteSource = "5c4e2a59a44f92a0:x16square"
+					var SpriteSource = "5c261325940c9cc3:IA_Enemy_Flap_SS_Ani"
 				}
 			}
 		}
@@ -725,11 +725,11 @@ Level
 	}
 	Cog [ContextId:19]
 	{
-		var Name = "IA_Background_Ani"
+		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{128, 120, -10}
-			var Scale = Real3{1, 1, 1}
+			var Translation = Real3{-43.3528671, 239.895996, -1}
+			var Scale = Real3{25.5635509, 0.69525826, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -744,12 +744,31 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c26028441010abf:IA_Background_Ani"
+			var SpriteSource = "5c4e2a59a44f92a0:x16square"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
 			var AnimationSpeed = 1
 			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 500}
 		}
 	}
 }
