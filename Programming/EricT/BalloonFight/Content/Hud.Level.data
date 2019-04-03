@@ -240,7 +240,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "000000"
-			var Font = "5cc27aceb4e3e09e:balloonfight"
+			var Font = "587b2f7646ba23d5:NotoSans-Bold"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -271,7 +271,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "000000"
-			var Font = "5cc27aceb4e3e09e:balloonfight"
+			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center

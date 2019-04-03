@@ -8,13 +8,14 @@
 class GameVars : ZilchComponent
 {
   //PlayerLives
-  var CurrentLives : Real = 3;
-  var PlayerBalloons : Real = 2;
+  [Property]
+  var CurrentLives : Real = 2;
   var TouchingGround : Boolean = false;
-  var CurrentScore : Real = 000000;
+  var CurrentScore : Real = 0;
+  
+  var PlayerExists : Boolean = true;
   
   function Initialize(init : CogInitializer)
   {
-    this.CurrentScore = 000000;
   }
 }

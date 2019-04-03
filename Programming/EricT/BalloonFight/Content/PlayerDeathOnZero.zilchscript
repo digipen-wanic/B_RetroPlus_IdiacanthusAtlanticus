@@ -9,6 +9,17 @@
 
 class PlayerDeathOnZero : ZilchComponent
 {
+  [Property]
+  var Speed : Real = 50;
+  
+  [Property]
+  var FallingAnimation : SpriteSource = null;
+  
+  var PlayerChild : Cog = null;
+  
+  [Property]
+  var KillHeight : Real = 10;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -16,10 +27,17 @@ class PlayerDeathOnZero : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.GameSession.GameVars.PlayerBalloons == 0)
+    if(this.Owner.PlayerVars.PlayerBalloons == 0)
     {
-      this.Owner.Parent.Destroy();
-      this.Space.LoadLevel(Level.Ded);
+      this.Owner.Parent.RigidBody.Velocity = Real3(0, -1 * this.Speed, 0);
+      this.Owner.Parent.BoxCollider.CollisionGroup = CollisionGroup.PlayerFalling;
+      this.Owner.Sprite.SpriteSource = this.FallingAnimation;
+      if(this.Owner.Parent.Transform.Translation.Y <= this.KillHeight)
+      {
+        this.GameSession.GameVars.CurrentLives -= 1;
+        this.Owner.Parent.Destroy();
+        this.GameSession.GameVars.PlayerExists = false;
+      }
     }
   }
 }

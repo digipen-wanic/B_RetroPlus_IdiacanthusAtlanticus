@@ -49,6 +49,9 @@ Cog
 	RigidSync 
 	{
 	}
+	EnemyAnimationController 
+	{
+	}
 	Hierarchy 
 	{
 		Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"]

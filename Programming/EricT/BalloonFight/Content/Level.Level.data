@@ -38,10 +38,6 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
-		HudCreator 
-		{
-			var HUDLevel = "5cc2729730e3e10e:Hud"
-		}
 	}
 	Cog [ContextId:2]
 	{
@@ -81,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{188.194366, 231.544113, 18.9999924}
+			var Translation = Real3{56.6175613, 195.943436, 39}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 427.931152
+			var Size = 286.850952
 		}
 		EditorCameraController 
 		{
@@ -143,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{188.194366, 231.544113, -1.00000834}
+			var LookTarget = Real3{56.6175613, 195.943436, 19}
 			var MoveSensitivity = 1
 		}
 	}
@@ -227,7 +223,7 @@ Level
 		var Name = "PlayerBoxM"
 		Transform 
 		{
-			var Translation = Real3{22.9335175, 25.6110153, -1.00000191}
+			var Translation = Real3{125.511139, 115.602386, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -505,7 +501,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{177.876251, 232.85257, -0.999995649}
+			var Translation = Real3{111.461243, 159.628265, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -520,7 +516,7 @@ Level
 				Sprite 
 				{
 					var VertexColor = Real4{1, 1, 1, 1}
-					var SpriteSource = "5c01757658475453:IA_Enemy_Fall_SS_Ani"
+					var SpriteSource = "5c261325940c9cc3:IA_Enemy_Flap_SS_Ani"
 				}
 			}
 		}
@@ -671,6 +667,232 @@ Level
 	}
 	Cog [ContextId:17]
 	{
-		var Name = "Root"
+		var Name = "IA_Water_Front"
+		Transform 
+		{
+			var Translation = Real3{127.499985, 5, -1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c267c0dd1b8ca48:IA_Water_Front"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:18]
+	{
+		var Name = "IA_Water_Back"
+		Transform 
+		{
+			var Translation = Real3{127.499954, 11, 1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c267c0dd1b89991:IA_Water_Back"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:19]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-43.3528671, 239.895996, -1}
+			var Scale = Real3{25.5635509, 0.69525826, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 500}
+		}
+	}
+	Cog [ContextId:20]
+	{
+		var Name = "SpriteText"
+		Transform 
+		{
+			var Translation = Real3{55.3480339, 202.006836, 0}
+			var Scale = Real3{27.5, 30, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "000000"
+			var Font = "5cc511e2d158cf49:balloonfight"
+			var FontSize = 32
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
+		}
+		ScoreText 
+		{
+		}
+	}
+	Cog [ContextId:21]
+	{
+		var Name = "IA_BalloonFighterPlayerIcon"
+		Transform 
+		{
+			var Translation = Real3{24.1837845, 198.766647, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c267c2ed88cbce8:IA_BalloonFighterPlayerIcon"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:22]
+	{
+		var Name = "BalloonLife2"
+		Transform 
+		{
+			var Translation = Real3{65.7512436, 191.921066, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c267c2ed88cab7a:IA_BalloonFighterLives"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		LifeText 
+		{
+		}
+	}
+	Cog [ContextId:23]
+	{
+		var Name = "BalloonLife1"
+		Transform 
+		{
+			var Translation = Real3{57.8572731, 191.84996, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c267c2ed88cab7a:IA_BalloonFighterLives"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		LifeText 
+		{
+		}
 	}
 }

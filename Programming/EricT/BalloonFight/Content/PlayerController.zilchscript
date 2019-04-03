@@ -80,7 +80,7 @@ class PlayerController : ZilchComponent
     }
     else
     {
-      Console.WriteLine(this.Owner.Sprite.SpriteSource == SpriteSource.IA_BalloonFighterFlapFull_Ani);
+      //Console.WriteLine(this.Owner.Sprite.SpriteSource == SpriteSource.IA_BalloonFighterFlapFull_Ani);
     }
   }
 
@@ -108,7 +108,7 @@ class PlayerController : ZilchComponent
         }
           
         this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
-        Console.WriteLine("flapped");
+        //Console.WriteLine("flapped");
         this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
         this.Owner.Sprite.CurrentFrame = 1;
       }
