@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 212.504059
+			var Size = 234.853287
 		}
 		EditorCameraController 
 		{
@@ -740,10 +740,10 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cc3d4561d945fa9:IA_LightningTopLeft_0_0"
+			var SpriteSource = "5cc3d2d3529f7448:IA_BaseCloud"
 			var FlipX = false
 			var FlipY = false
-			var AnimationActive = false
+			var AnimationActive = true
 			var AnimationSpeed = 1
 			var StartFrame = 0
 		}

@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 20}
+			var Translation = Real3{21.5144386, 74.9931793, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 662.306519
+			var Size = 808.942871
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0, 0, 0}
+			var LookTarget = Real3{21.5144386, 74.9931793, 9.40425991e-07}
 			var MoveSensitivity = 1
 		}
 	}
@@ -223,7 +223,7 @@ Level
 		var Name = "Balloon2"
 		Transform 
 		{
-			var Translation = Real3{66.9887009, 188.372299, 0}
+			var Translation = Real3{38.0978775, 214.804306, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -256,7 +256,7 @@ Level
 		var Name = "Balloon1"
 		Transform 
 		{
-			var Translation = Real3{110.24324, 190.252869, 0}
+			var Translation = Real3{67.2143555, 214.840805, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
