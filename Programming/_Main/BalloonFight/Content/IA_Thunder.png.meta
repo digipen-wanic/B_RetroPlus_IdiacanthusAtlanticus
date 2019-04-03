@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_Thunder"
+		var ResourceId = 0x5c267cc9c30f9a3f
+		var FrameSizeX = 32
+		var FrameSizeY = 60
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 0
+		var OriginY = 60
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

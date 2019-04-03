@@ -1,0 +1,24 @@
+class EnemyAnimationController : ZilchComponent
+{
+  var PlayerChild : Cog = null;
+  
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    foreach(var child in this.Owner.Children.All)
+    {
+      this.PlayerChild = child;
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Parent != null)
+    {
+      this.PlayerChild.Sprite.SpriteSource = this.Owner.Parent.Sprite.SpriteSource;
+      this.PlayerChild.Sprite.CurrentFrame = this.Owner.Parent.Sprite.CurrentFrame;
+      this.PlayerChild.Sprite.FlipX        = this.Owner.Parent.Sprite.FlipX;
+    }
+  }
+}

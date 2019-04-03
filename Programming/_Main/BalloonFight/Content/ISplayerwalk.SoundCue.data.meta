@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "ISplayerwalk"
+		var ResourceId = 0x5c2611d86246d39b
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}
