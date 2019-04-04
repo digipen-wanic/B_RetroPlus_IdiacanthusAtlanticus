@@ -36,7 +36,14 @@ class PlayerAnimationController : ZilchComponent
         if(this.PlayerChild.Name == "PlayerM")
         {
           this.PlayerChild.PlayerVars.IsWalking = false;
-          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+          if(this.PlayerChild.PlayerVars.PlayerBalloons == 2)
+          {
+            this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+          }
+          else
+          {
+            this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapHalf_Ani;
+          }
           this.PlayerChild.Sprite.CurrentFrame = 4;
           //Console.WriteLine("end");
           //Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);

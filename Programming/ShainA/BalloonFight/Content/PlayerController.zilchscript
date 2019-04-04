@@ -46,9 +46,17 @@ class PlayerController : ZilchComponent
   {
     if(event.Button == Buttons.B && this.CanFlap(this.Owner))
     {
-      if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani)
-        this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
-      
+      if(this.Owner.PlayerVars != null)
+      {
+        if(this.Owner.PlayerVars.PlayerBalloons == 2 && this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapFull_Ani)
+        {
+          this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapFull_Ani;
+        }
+        else if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_BalloonFighterFlapHalf_Ani)
+        {
+          this.Owner.Sprite.SpriteSource = SpriteSource.IA_BalloonFighterFlapHalf_Ani;
+        }
+      }
       this.Owner.Parent.RigidBody.Velocity += Real3(0,this.UpForce,0);
       this.Space.SoundSpace.PlayCue(SoundCue.ISflap);
       if(this.Gamepad.IsButtonHeld(Buttons.DpadLeft))

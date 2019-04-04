@@ -38,6 +38,7 @@ class EnemyAnimationController : ZilchComponent
           this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Pump_SS_Ani;
           this.Timer = 0;
           this.SittingAroundAtTheSpeedOfSound = false;
+          this.Owner.Collider.CollisionGroup = CollisionGroup.DefaultGroup;
         }
       }
     }
@@ -66,6 +67,7 @@ class EnemyAnimationController : ZilchComponent
         }
         else
         {
+          this.Owner.Collider.CollisionGroup = CollisionGroup.EnemyFalling;
           this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
           this.Owner.RigidBody.Velocity = Real3(0,0,0);
           this.BalloonPoaped = true;
@@ -95,6 +97,8 @@ class EnemyAnimationController : ZilchComponent
       //BAR BENZVI HAHAHAHAH
       this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
       this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      this.Owner.Collider.CollisionGroup = CollisionGroup.EnemyFalling;
+      this.BalloonPoaped = true;
       if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle)
       {
         this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Fall_SS_Ani;

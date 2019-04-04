@@ -479,7 +479,7 @@ Level
 		}
 		Sprite 
 		{
-			var Visible = true
+			var Visible = false
 			var ViewCulling = true
 			var VisibilityEvents = true
 			var OverrideBoundingBox = false
@@ -526,7 +526,45 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:14]
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:14]
+	{
+		Transform 
+		{
+			var Translation = Real3{152.746628, 85.8479538, -1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:15]
+			{
+				Sprite 
+				{
+					var VertexColor = Real4{1, 1, 1, 1}
+				}
+			}
+		}
+	}
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:16]
+	{
+		Transform 
+		{
+			var Translation = Real3{120.872787, 85.5323868, -1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:17]
+			{
+				Sprite 
+				{
+					var VertexColor = Real4{1, 1, 1, 1}
+				}
+			}
+		}
+	}
+	Cog [ContextId:18]
 	{
 		var Name = "WalkPlatform_Right"
 		Transform 
@@ -574,7 +612,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:15]
+	Cog [ContextId:19]
 	{
 		var Name = "WalkPlatform_Left"
 		Transform 
@@ -622,7 +660,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:16]
+	Cog [ContextId:20]
 	{
 		var Name = "WalkPlatform_Center"
 		Transform 
@@ -670,7 +708,7 @@ Level
 			var HalfSize = Real3{55, 1, 0.5}
 		}
 	}
-	Cog [ContextId:17]
+	Cog [ContextId:21]
 	{
 		var Name = "IA_Water_Front"
 		Transform 
@@ -699,7 +737,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:18]
+	Cog [ContextId:22]
 	{
 		var Name = "IA_Water_Back"
 		Transform 
@@ -728,7 +766,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:19]
+	Cog [ContextId:23]
 	{
 		var Name = "Sprite"
 		Transform 
@@ -774,44 +812,6 @@ Level
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 500}
-		}
-	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:20]
-	{
-		Transform 
-		{
-			var Translation = Real3{152.746628, 85.8479538, -1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:21]
-			{
-				Sprite 
-				{
-					var VertexColor = Real4{1, 1, 1, 1}
-				}
-			}
-		}
-	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:22]
-	{
-		Transform 
-		{
-			var Translation = Real3{120.872787, 85.5323868, -1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:23]
-			{
-				Sprite 
-				{
-					var VertexColor = Real4{1, 1, 1, 1}
-				}
-			}
 		}
 	}
 }
