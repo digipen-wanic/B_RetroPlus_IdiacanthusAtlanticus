@@ -239,7 +239,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var SpriteSource = "5cc679c9119ec9d4:IA_BalloonFighterLives"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -256,7 +256,7 @@ Level
 		var Name = "Balloon1"
 		Transform 
 		{
-			var Translation = Real3{67.2143555, 214.840805, 0}
+			var Translation = Real3{46.0599518, 214.840805, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -272,7 +272,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c4e2a59a44f92a0:x16square"
+			var SpriteSource = "5cc679c9119ec9d4:IA_BalloonFighterLives"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
