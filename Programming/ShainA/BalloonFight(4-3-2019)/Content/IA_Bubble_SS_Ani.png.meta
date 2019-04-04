@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_Bubble_SS_Ani"
+		var ResourceId = 0x5c261319e301ee8e
+		var FrameSizeX = 14
+		var FrameSizeY = 17
+		var FrameCount = 4
+		var FrameDelay = 0.166666672
+		var OriginX = 0
+		var OriginY = 17
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

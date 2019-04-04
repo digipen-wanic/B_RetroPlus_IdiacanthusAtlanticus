@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_BFBalloonMovementFull_Ani"
+		var ResourceId = 0x5c260841769b2908
+		var FrameSizeX = 16
+		var FrameSizeY = 12
+		var FrameCount = 3
+		var FrameDelay = 0.400000006
+		var OriginX = 8
+		var OriginY = 6
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

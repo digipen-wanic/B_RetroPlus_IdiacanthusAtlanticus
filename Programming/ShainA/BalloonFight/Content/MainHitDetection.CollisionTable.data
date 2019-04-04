@@ -5,6 +5,7 @@ CollisionTable
 	{
 		"5cc27c5865f307e3:PlayerFalling"
 		"4e740859314e5515:DefaultGroup"
+		"5cc51ee0fe772b0d:Fish"
 		"5cfe82dfe63f73cf:LightningBallSpawner"
 		"5cfe7e358a7b5d25:LightningBall"
 	}
@@ -80,6 +81,50 @@ CollisionTable
 		{
 			var TypeA = "4e740859314e5515:DefaultGroup"
 			var TypeB = "5cc27c5865f307e3:PlayerFalling"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cc51ee0fe772b0d:Fish"
+			var TypeB = "5cc27c5865f307e3:PlayerFalling"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cc51ee0fe772b0d:Fish"
+			var TypeB = "5cfe82dfe63f73cf:LightningBallSpawner"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cc51ee0fe772b0d:Fish"
+			var TypeB = "5cfe7e358a7b5d25:LightningBall"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5cc51ee0fe772b0d:Fish"
+			var TypeB = "5cc51ee0fe772b0d:Fish"
 			var SkipResolution = false
 			var SkipDetectingCollision = true
 			var StartEvent = false

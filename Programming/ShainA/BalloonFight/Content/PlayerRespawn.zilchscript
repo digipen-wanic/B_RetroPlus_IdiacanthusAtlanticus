@@ -1,0 +1,39 @@
+//////////////////////
+//Name: John Richardson
+//Date Created: 4/1/2019
+//Date Edited: 4/1/2019
+//Description: Spawns Player
+//////////////////////
+
+
+
+class PlayerRespawn : ZilchComponent
+{
+  var Timer : Real = 0;
+  [Property]
+  var Delay : Real = 3;
+  
+  [Property]
+  var Player : Archetype = null; 
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.CurrentLives > 0)
+    {
+      if(this.GameSession.GameVars.PlayerExists == false)
+      {
+        this.Timer += event.Dt;
+        if(this.Timer >= this.Delay)
+        {
+          this.Space.CreateAtPosition(this.Player, this.Owner.Transform.Translation);
+          this.Timer = 0;
+          this.GameSession.GameVars.PlayerExists = true;
+        }
+      }
+    }
+  }
+}
