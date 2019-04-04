@@ -1,0 +1,35 @@
+class ScoreText : ZilchComponent
+{
+  [Dependency]
+  var SpriteText : SpriteText = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVars.CurrentScore == 0)
+    {
+        this.SpriteText.Text = "000000";
+    }
+    else if(this.GameSession.GameVars.CurrentScore < 1000)
+    {
+    this.SpriteText.Text = "000`this.GameSession.GameVars.CurrentScore`";
+    }
+    else if(this.GameSession.GameVars.CurrentScore >= 1000 && this.GameSession.GameVars.CurrentScore < 10000)
+    {
+    this.SpriteText.Text = "00`this.GameSession.GameVars.CurrentScore`";
+    }
+    else if(this.GameSession.GameVars.CurrentScore >= 10000 && this.GameSession.GameVars.CurrentScore < 100000)
+    {
+    this.SpriteText.Text = "0`this.GameSession.GameVars.CurrentScore`";
+    }
+    else if(this.GameSession.GameVars.CurrentScore >= 100000 && this.GameSession.GameVars.CurrentScore < 1000000)
+    {
+    this.SpriteText.Text = "`this.GameSession.GameVars.CurrentScore`";
+    }
+  }
+}

@@ -1,0 +1,131 @@
+/*******
+made by: Shain & yuval
+comade by bArbare
+*******/
+class EnemyAnimationController : ZilchComponent
+{
+  var PlayerChild : Cog = null;
+  var Timer : Real = 0;
+  //how long it has to wait to respawn
+  [Property]
+  var RespawnTime : Real = 5;
+  var SittingAroundAtTheSpeedOfSound : Boolean = false;
+  var BalloonPoaped : Boolean = false;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    foreach(var child in this.Owner.Children.All)
+    {
+      this.PlayerChild = child;
+    }
+  }
+
+  function OnCollisionPersisted(event : CollisionEvent)
+  {
+    if(this.Owner.Parent == null)
+    {
+      //this is for ground/bird collison
+      if(event.OtherObject.Name.Contains("WalkPlatform"))
+      {
+        //Console.WriteLine(this.Timer - this.RespawnTime);
+        if(this.Timer > this.RespawnTime)
+        {
+          Console.WriteLine("we got em birds");
+          Console.WriteLine(this.PlayerChild.Name);
+          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Pump_SS_Ani;
+          this.Timer = 0;
+          this.SittingAroundAtTheSpeedOfSound = false;
+        }
+      }
+    }
+  }
+
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    //this is for Player/bird collison
+    if(event.OtherObject.Name.Contains("PlayerBox"))
+    {
+      //the bird is above the player
+      if(this.Owner.Transform.WorldTranslation.Y - event.OtherObject.Transform.WorldTranslation.Y > 10)
+      {
+        
+      }
+      
+      //the bird gonna die
+      if(this.Owner.Transform.WorldTranslation.Y - event.OtherObject.Transform.WorldTranslation.Y < -10)
+      {
+        if(this.BalloonPoaped)
+        {
+          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Fall_SS_Ani;
+          this.Owner.BoxCollider.Ghost = true;
+          this.Space.SoundSpace.PlayCue(SoundCue.ISfall);
+        }
+        else
+        {
+          this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
+          this.Owner.RigidBody.Velocity = Real3(0,0,0);
+          this.BalloonPoaped = true;
+        }
+      }
+    }
+    
+    if(event.OtherObject.Name.Contains("WalkPlatform"))
+    {
+      this.SittingAroundAtTheSpeedOfSound = true;
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Idle;
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //inherit sprite information
+    if(this.Owner.Parent != null)
+    {
+      this.PlayerChild.Sprite.SpriteSource = this.Owner.Parent.Sprite.SpriteSource;
+      this.PlayerChild.Sprite.CurrentFrame = this.Owner.Parent.Sprite.CurrentFrame;
+      this.PlayerChild.Sprite.FlipX        = this.Owner.Parent.Sprite.FlipX;
+    }
+    
+    if(Zero.Keyboard.KeyIsPressed(Keys.K))
+    {
+      //BAR BENZVI HAHAHAHAH
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle)
+      {
+        this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Fall_SS_Ani;
+        //this.Owner.BoxCollider.Ghost = true;
+      }
+    }
+    
+    if(this.Owner.RigidBody.Velocity.X > 0)
+    {
+      this.PlayerChild.Sprite.FlipX = true;
+      //Console.WriteLine("flipped");
+    }
+    else
+    {
+      this.PlayerChild.Sprite.FlipX = false;
+      //Console.WriteLine("nope");
+    }
+    
+    //checks if the enemy is sitting down on the platforms
+    if(this.SittingAroundAtTheSpeedOfSound)
+    {
+      this.Timer += event.Dt;
+    }
+    
+    if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Pump_SS_Ani && this.PlayerChild.Sprite.CurrentFrame == 5)
+    {
+      //BAR BENZVI HAHAHAHAH
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Flap_SS_Ani;
+      Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);
+      this.BalloonPoaped = false;
+    }
+    //Console.WriteLine("`this.Timer` `this.Owner.Name`");
+  }
+}

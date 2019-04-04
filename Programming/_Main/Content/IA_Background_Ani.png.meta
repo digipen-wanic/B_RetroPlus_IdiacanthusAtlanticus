@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_Background_Ani"
+		var ResourceId = 0x5c26028441010abf
+		var FrameSizeX = 256
+		var FrameSizeY = 240
+		var FrameCount = 4
+		var FrameDelay = 0.5
+		var OriginX = 128
+		var OriginY = 120
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

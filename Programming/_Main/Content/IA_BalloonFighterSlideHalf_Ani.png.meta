@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "IA_BalloonFighterSlideHalf_Ani"
+		var ResourceId = 0x5c01778c98100675
+		var FrameSizeX = 11
+		var FrameSizeY = 24
+		var FrameCount = 2
+		var FrameDelay = 0.200000003
+		var OriginX = 0
+		var OriginY = 24
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

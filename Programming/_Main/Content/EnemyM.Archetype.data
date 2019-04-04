@@ -1,0 +1,13 @@
+[Version:1]
+Cog [InheritId:"5c48f9ee20b4d2c0:Enemy"]
+{
+	EnemyAI [LocallyAdded]
+	{
+		var SpeedCap = 50
+		var MinTime = 5
+		var MaxTime = 10
+	}
+	TransferGhost [LocallyAdded]
+	{
+	}
+}
