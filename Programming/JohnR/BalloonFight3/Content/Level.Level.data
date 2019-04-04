@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 638.39679
+			var Size = 350.359802
 		}
 		EditorCameraController 
 		{
@@ -790,6 +790,10 @@ Level
 		{
 			var Delay = 2
 			var Fish = "5cc51800241e1da5:Fish"
+			var Boundry1 = 60
+			var Boundry2 = 190
+			var BoundryY = 30
+			var FishSpawnLocation = 30
 		}
 	}
 }

@@ -17,41 +17,43 @@ class FishSpawner : ZilchComponent
   [Property]
   var Fish : Archetype = null;
   
+  [Property]
+  var Boundry1 : Real = 60;
+  [Property]
+  var Boundry2 : Real = 190;
+  [Property]
+  var BoundryY : Real = 30;
+  //sets the location for where the fish spawns
+  [Property]
+  var FishSpawnLocation : Real = 30;
+  
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    Zero.Connect(this.Space, Events.CollisionStarted, this.OnCollisionStarted);
   }
 
-  function OnCollisionStarted(event : CollisionEvent)
-  {
-    if(event.OtherObject.PlayerKill != null)
-    {
-      this.TimerEnable = true;
-    }
-    else
-    {
-      this.TimerEnable = false;
-    }
-  }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.GameSession.GameVars.PlayerYCoordinate <= 50)
+    if(this.GameSession.GameVars.PlayerXCoordinate >= this.Boundry1 && this.GameSession.GameVars.PlayerXCoordinate <= this.Boundry2)
     {
-      this.Timer += event.Dt;
-      
-      if(this.Timer >= this.Delay && this.GameSession.GameVars.FishExists == false)
+      if(this.GameSession.GameVars.PlayerYCoordinate <= this.BoundryY)
       {
-        //Spawns the fish
-        this.Space.CreateAtPosition(this.Fish, Real3(this.GameSession.GameVars.PlayerXCoordinate,this.Owner.Transform.Translation.Y, this.Owner.Transform.Translation.Z));
-        //Resets Timer
-        this.Timer = 0;
-        this.GameSession.GameVars.FishExists = true;
+        this.Timer += event.Dt;
+        
+        if(this.Timer >= this.Delay && this.GameSession.GameVars.FishExists == false)
+        {
+          //Spawns the fish
+          this.Space.CreateAtPosition(this.Fish, Real3(this.GameSession.GameVars.PlayerXCoordinate,this.FishSpawnLocation, this.Owner.Transform.Translation.Z));
+          //Resets Timer
+          this.Timer = 0;
+          this.GameSession.GameVars.FishExists = true;
+        }
       }
     }
     //Resets timer when timer is disabled
-    if(this.GameSession.GameVars.PlayerYCoordinate >= 50)
+    if(this.GameSession.GameVars.PlayerYCoordinate >= this.BoundryY)
     {
       this.Timer = 0;
     }

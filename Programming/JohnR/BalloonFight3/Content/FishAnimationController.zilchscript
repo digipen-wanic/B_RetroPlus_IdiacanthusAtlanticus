@@ -1,0 +1,82 @@
+///////////////////////////////////////
+//Name: John Richardson
+//Date Created : 4/4/2019
+//Date Edited: 4/4/2019
+//Description: Animation Controller for the Fish
+//Version: 1.0
+//////////////////////////////////////
+
+
+class FishAnimationController : ZilchComponent
+{
+  [Property]
+  var FishStartingPosition : Real = 30;
+  [Property]
+  var YFrame1 : Real = 5;
+  [Property]
+  var YFrame2 : Real = 10;
+  [Property]
+  var YFrame3 : Real = 15;
+  [Property]
+  var YFrame4 : Real = 20;
+  [Property]
+  var YFrame5 : Real = 25;
+  [Property]
+  var YFrame6 : Real = 30;
+  [Property]
+  var YFrame7 : Real = 35;
+  
+  var FishMissed : Boolean = false;
+  
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame1) && this.Owner.Transform.Translation.Y <= (this.FishStartingPosition + this.YFrame2))
+    {
+      this.Owner.Sprite.CurrentFrame = 1;
+    }
+    
+    if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame2) && this.Owner.Transform.Translation.Y <= (this.FishStartingPosition + this.YFrame3))
+    {
+      this.Owner.Sprite.CurrentFrame = 2;
+    }
+    
+    if(this.GameSession.GameVars.FishAtePlayer == true)
+    {
+      this.Owner.Sprite.CurrentFrame = 3;
+    }
+    
+    if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame4) && this.GameSession.GameVars.FishAtePlayer == false)
+    {
+      this.FishMissed = true;
+    }
+    
+    if(this.FishMissed == true)
+    {
+      if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame2) && this.Owner.Transform.Translation.Y <= (this.FishStartingPosition + this.YFrame3))
+      {
+        if(this.Owner.Sprite.CurrentFrame == 2)
+        {
+          this.Owner.Sprite.CurrentFrame = 4;
+          this.Owner.Sprite.AnimationActive = true;
+        }
+      }
+      
+      if(this.Owner.Sprite.AnimationActive == true && this.Owner.Sprite.CurrentFrame == 5)
+      {
+        this.Owner.Sprite.AnimationActive = false;
+      }
+      
+      if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame1) && this.Owner.Transform.Translation.Y <= (this.FishStartingPosition + this.YFrame2))
+      {
+        this.Owner.Sprite.CurrentFrame = 6;
+      }
+    }
+    
+  }
+}

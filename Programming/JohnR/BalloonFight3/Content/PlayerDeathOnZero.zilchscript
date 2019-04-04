@@ -67,10 +67,18 @@ class PlayerDeathOnZero : ZilchComponent
       this.Owner.Sprite.SpriteSource = this.FallingAnimation;
       if(this.Owner.Parent.Transform.Translation.Y <= this.KillHeight)
       {
+        //resets the player coordinates
+        this.GameSession.GameVars.PlayerXCoordinate = 0;
+        this.GameSession.GameVars.PlayerYCoordinate = 0;
+        //subracts 1 player life
         this.GameSession.GameVars.CurrentLives -= 1;
+        //destroys the player
         this.Owner.Parent.Destroy();
+        //sets player exist state to false
         this.GameSession.GameVars.PlayerExists = false;
+        //resets timer
         this.Timer = 0;
+        //resets the sound player
         this.PlaySound = true;
       }
     }
