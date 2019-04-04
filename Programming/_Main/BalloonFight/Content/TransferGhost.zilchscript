@@ -1,0 +1,15 @@
+class TransferGhost : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    foreach(var child in this.Owner.Children.All)
+    {
+      child.BoxCollider.Ghost = this.Owner.Parent.BoxCollider.Ghost;
+    }
+  }
+}

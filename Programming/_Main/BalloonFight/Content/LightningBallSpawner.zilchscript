@@ -10,30 +10,10 @@
 class LightningBallSpawner : ZilchComponent
 {
   var Delay : Real = 2;
-  var Delay2 : Real = 2;
   var Timer : Real = 0;
-  var Timer2 : Real = 0;
   
   [Property]
   var Projectile : Archetype = null;
-  
-  //Animations
-  [Property]
-  var Thunder : SpriteSource = null;
-  [Property]
-  var LightningTopLeft : SpriteSource = null;
-  [Property]
-  var LightningTopRight : SpriteSource = null;
-  [Property]
-  var LightningBottomLeft : SpriteSource = null;
-  [Property]
-  var LightningBottomnRight : SpriteSource = null;
-  [Property]
-  var DefaultCloud : SpriteSource = null;
-  
-  
-  var AnimationState : Boolean = false;
-  var AnimationState2 :Boolean = true;
   
   function Initialize(init : CogInitializer)
   {
@@ -46,55 +26,10 @@ class LightningBallSpawner : ZilchComponent
     this.Timer += event.Dt;
     if(this.Timer >= this.Delay)
     {
-      if(this.AnimationState2 == true)
-      {
-      this.Owner.Sprite.SpriteSource = this.Thunder;
-      this.AnimationState2 = false;
-      }
-      this.Timer2 += event.Dt;
-      
-      if(this.Timer2 >= this.Delay2)
-      {
       //Creates object at position of the spawner
       this.Space.CreateAtPosition(this.Projectile, this.Owner.Transform.Translation);
-        
-        
-        //Swaps animation direction based on projectile direction
-        if(this.GameSession.GameVars.LightningBallX == 1 && this.GameSession.GameVars.LightningBallY == 1 && this.AnimationState == false)
-        {
-          this.Owner.Sprite.SpriteSource = this.LightningTopRight;
-          this.AnimationState = true;
-        }
-        if(this.GameSession.GameVars.LightningBallX == 1 && this.GameSession.GameVars.LightningBallY == -1 && this.AnimationState == false)
-        {
-          this.Owner.Sprite.SpriteSource = this.LightningBottomnRight;
-          this.AnimationState = true;
-        }
-        if(this.GameSession.GameVars.LightningBallX == -1 && this.GameSession.GameVars.LightningBallY == 1 && this.AnimationState == false)
-        {
-          this.Owner.Sprite.SpriteSource = this.LightningTopLeft;
-          this.AnimationState = true;
-        }
-        if(this.GameSession.GameVars.LightningBallX == -1 && this.GameSession.GameVars.LightningBallY == -1 && this.AnimationState == false)
-        {
-          this.Owner.Sprite.SpriteSource = this.LightningBottomLeft;
-          this.AnimationState = true;
-        }
-      //resets the thunder animation
-      this.AnimationState2 = true;
       //resets the timer
       this.Timer = 0;
-      this.Timer2 = 0;
-      }
     }
-    if(this.AnimationState == true)
-    {
-      if(this.Owner.Sprite.CurrentFrame == 4)
-      {
-        this.Owner.Sprite.SpriteSource = this.DefaultCloud;
-        this.AnimationState = false;
-      }
-    }
-    
   }
 }
