@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 95.4843063
+			var Size = 472.936127
 		}
 		EditorCameraController 
 		{
@@ -223,7 +223,7 @@ Level
 		var Name = "PlayerBoxM"
 		Transform 
 		{
-			var Translation = Real3{125.511139, 115.602386, -1}
+			var Translation = Real3{27.680481, 25.9768524, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -473,13 +473,13 @@ Level
 		var Name = "Balloonbattlemainstage"
 		Transform 
 		{
-			var Translation = Real3{127.5, 103.697815, -1}
+			var Translation = Real3{127.5, 103.697815, -10}
 			var Scale = Real3{0.74000001, 0.800000012, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
 		{
-			var Visible = false
+			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
 			var OverrideBoundingBox = false
@@ -502,7 +502,7 @@ Level
 		var Name = "EnemyBoxM"
 		Transform 
 		{
-			var Translation = Real3{90.9243622, 114.882751, -0.999995649}
+			var Translation = Real3{87.4529648, 84.9023819, -0.999995649}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -774,6 +774,44 @@ Level
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 500}
+		}
+	}
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:20]
+	{
+		Transform 
+		{
+			var Translation = Real3{152.746628, 85.8479538, -1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:21]
+			{
+				Sprite 
+				{
+					var VertexColor = Real4{1, 1, 1, 1}
+				}
+			}
+		}
+	}
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:22]
+	{
+		Transform 
+		{
+			var Translation = Real3{120.872787, 85.5323868, -1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:23]
+			{
+				Sprite 
+				{
+					var VertexColor = Real4{1, 1, 1, 1}
+				}
+			}
 		}
 	}
 }
