@@ -25,19 +25,18 @@ class EnemyAnimationController : ZilchComponent
       //this is for ground/bird collison
       if(event.OtherObject.Name.Contains("WalkPlatform"))
       {
-        this.SittingAroundAtTheSpeedOfSound = true;
-        this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Idle;
-        Console.WriteLine(this.Timer);
+        //Console.WriteLine(this.Timer - this.RespawnTime);
         if(this.Timer > this.RespawnTime)
         {
           Console.WriteLine("we got em birds");
+          Console.WriteLine(this.PlayerChild.Name);
           this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Pump_SS_Ani;
           this.Timer = 0;
-          if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Pump_SS_Ani && this.PlayerChild.Sprite.CurrentFrame == 5)
-          {
-            this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle_Flap_SS_Ani;
-          }
+          this.SittingAroundAtTheSpeedOfSound = false;
         }
+        
+        
+        
       }
     }
   }
@@ -59,18 +58,24 @@ class EnemyAnimationController : ZilchComponent
       {
         this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
         this.Owner.RigidBody.Velocity = Real3(0,0,0);
-        if(this.PlayerChild.Sprite.SpriteSource != SpriteSource.IA_Enemy_Flap_SS_Ani && (this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle || this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Parachute_SS_Ani))
+        if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle || this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Parachute_SS_Ani)
         {
           this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Fall_SS_Ani;
-          this.Owner.BoxCollider.Ghost = true;
+          //this.Owner.BoxCollider.Ghost = true;
         }
       }
+    }
+    
+    if(event.OtherObject.Name.Contains("WalkPlatform"))
+    {
+      this.SittingAroundAtTheSpeedOfSound = true;
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Idle;
     }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    //inharet sprite information
+    //inherit sprite information
     if(this.Owner.Parent != null)
     {
       this.PlayerChild.Sprite.SpriteSource = this.Owner.Parent.Sprite.SpriteSource;
@@ -78,10 +83,22 @@ class EnemyAnimationController : ZilchComponent
       this.PlayerChild.Sprite.FlipX        = this.Owner.Parent.Sprite.FlipX;
     }
     
+    if(Zero.Keyboard.KeyIsPressed(Keys.K))
+    {
+      //BAR BENZVI HAHAHAHAH
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Parachute_SS_Ani;
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Idle || this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Parachute_SS_Ani)
+      {
+        this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Fall_SS_Ani;
+        //this.Owner.BoxCollider.Ghost = true;
+      }
+    }
+    
     if(this.Owner.RigidBody.Velocity.X > 0)
     {
       this.PlayerChild.Sprite.FlipX = true;
-      //Console.WriteLine("fliped");
+      //Console.WriteLine("flipped");
     }
     else
     {
@@ -94,6 +111,14 @@ class EnemyAnimationController : ZilchComponent
     {
       this.Timer += event.Dt;
     }
+    
+    if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Pump_SS_Ani && this.PlayerChild.Sprite.CurrentFrame == 5)
+    {
+      //BAR BENZVI HAHAHAHAH
+      this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Idle_Flap_SS_Ani;
+      Console.WriteLine(this.PlayerChild.Sprite.SpriteSource.Name);
+    }
+    
     //Console.WriteLine("`this.Timer` `this.Owner.Name`");
   }
 }
