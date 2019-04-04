@@ -12,8 +12,23 @@ class GameVars : ZilchComponent
   var CurrentLives : Real = 3;
   var TouchingGround : Boolean = false;
   var CurrentScore : Integer = 0;
-  
+  //LightningBall Directional Vars
+  var LightningBallX : Real = 0;
+  var LightningBallY : Real = 0;
+  //Saves the player X Coordinate
+  var PlayerXCoordinate : Real = 0;
+  //Saves the Player Y Coordinate
+  var PlayerYCoordinate: Real = 0;
+  //Variable for if player exists
   var PlayerExists : Boolean = true;
+  //variable for if the fish ate the player
+  var FishAtePlayer : Boolean = false;
+  //Coordinates for the Fish
+  var FishXCoordinate : Real = 0;
+  var FishYCoordinate : Real = 0;
+  //Fish exists variable
+  var FishExists : Boolean = false;
+  
   
   function Initialize(init : CogInitializer)
   {
