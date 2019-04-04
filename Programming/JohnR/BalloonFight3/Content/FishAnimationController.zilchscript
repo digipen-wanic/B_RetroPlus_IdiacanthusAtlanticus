@@ -20,6 +20,11 @@ class FishAnimationController : ZilchComponent
   [Property]
   var YFrame4 : Real = 20;
   
+  var Timer : Real = 0;
+  
+  [Property]
+  var Delay : Real = 0.5;
+  
   var FishMissed : Boolean = false;
   
   
@@ -57,13 +62,17 @@ class FishAnimationController : ZilchComponent
         if(this.Owner.Sprite.CurrentFrame == 2)
         {
           this.Owner.Sprite.CurrentFrame = 4;
-          this.Owner.Sprite.AnimationActive = true;
         }
       }
       
-      if(this.Owner.Sprite.AnimationActive == true && this.Owner.Sprite.CurrentFrame == 5)
+      if(this.Owner.Sprite.CurrentFrame == 4)
       {
-        this.Owner.Sprite.AnimationActive = false;
+        this.Timer += event.Dt;
+        if(this.Timer >= this.Delay)
+        {
+          this.Owner.Sprite.CurrentFrame == 5;
+          this.Timer = 0;
+        }
       }
       
       if(this.Owner.Transform.Translation.Y >= (this.FishStartingPosition + this.YFrame1) && this.Owner.Transform.Translation.Y <= (this.FishStartingPosition + this.YFrame2))

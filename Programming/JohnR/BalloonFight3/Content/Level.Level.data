@@ -792,7 +792,7 @@ Level
 			var Fish = "5cc51800241e1da5:Fish"
 			var Boundry1 = 60
 			var Boundry2 = 190
-			var BoundryY = 40
+			var BoundryY = 50
 			var FishSpawnLocation = 25
 		}
 	}

@@ -39,6 +39,11 @@ class PlayerDeathOnZero : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    if(this.Owner.Parent.Transform.Translation.Y <= this.KillHeight)
+    {
+      this.Owner.PlayerVars.PlayerBalloons = 0;
+    }
+    
     if(this.Owner.PlayerVars.PlayerBalloons == 0)
     {
       if(this.PlaySound == true)
