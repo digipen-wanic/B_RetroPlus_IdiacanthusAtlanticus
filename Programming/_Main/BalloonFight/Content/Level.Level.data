@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 577.645386
+			var Size = 95.4843063
 		}
 		EditorCameraController 
 		{
@@ -499,11 +499,16 @@ Level
 	}
 	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:12]
 	{
+		var Name = "EnemyBoxM"
 		Transform 
 		{
 			var Translation = Real3{90.9243622, 114.882751, -0.999995649}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
+		}
+		BoxCollider 
+		{
+			var Material = "5c48d3614e46712a:Firm"
 		}
 		Hierarchy 
 		{

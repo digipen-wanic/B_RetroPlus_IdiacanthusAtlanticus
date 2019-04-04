@@ -33,7 +33,7 @@ class EnemyAI : ZilchComponent
   {
     if(event.OtherObject.Name.Contains("Walk"))
     {
-      this.Owner.Parent.RigidBody.Velocity += Real3(0,0,0);
+      this.Owner.Parent.RigidBody.Velocity = Real3(0,0,0);
     }
   }
 
@@ -45,9 +45,9 @@ class EnemyAI : ZilchComponent
     if(this.Transform.WorldTranslation.X < -10)
       this.Owner.Parent.Transform.Translation += Real3(256,0,0);
     
-    if(this.Owner.Sprite.SpriteSource != SpriteSource.IA_Enemy_Parachute_SS_Ani)
+    if(this.Owner.Sprite.SpriteSource == SpriteSource.IA_Enemy_Flap_SS_Ani)
     {
-      //Console.WriteLine("it happeneing");
+      //Console.WriteLine("it happeneing`this.Owner.Sprite.SpriteSource.Name`");
       if(this.Timer2 > this.Rand.Range(this.MinTime, this.MaxTime))
       {
         this.Direction = this.Rand.DieRoll(8);
@@ -56,48 +56,59 @@ class EnemyAI : ZilchComponent
     }
     else
     {
-      //Console.WriteLine("Stoooped");
+      this.Direction = 0;
+      //Console.WriteLine("Stoooped`this.Owner.Sprite.SpriteSource.Name`");
     }
     
-    //Console.WriteLine(this.Direction);
+    //Console.WriteLine(this.Owner.RigidBody.Velocity);
     if(this.Direction == 1)
     {
+      //Console.WriteLine("this is a thing1");
       this.Owner.Parent.RigidBody.Velocity += Real3(0,1,0);
     }
     if(this.Direction == 2)
     {
+      //Console.WriteLine("this is a thing2");
       this.Owner.Parent.RigidBody.Velocity += Real3(1,1,0);
     }
     if(this.Direction == 3)
     {
+      //Console.WriteLine("this is a thing3");
       this.Owner.Parent.RigidBody.Velocity += Real3(1,0,0);
     }
     if(this.Direction == 4)
     {
+      //Console.WriteLine("this is a thing4");
       this.Owner.Parent.RigidBody.Velocity += Real3(1,-1,0);
     }
     if(this.Direction == 5)
     {
+      //Console.WriteLine("this is a thing5");
       this.Owner.Parent.RigidBody.Velocity += Real3(0,-1,0);
     }
     if(this.Direction == 6)
     {
+     //Console.WriteLine("this is a thing6");
       this.Owner.Parent.RigidBody.Velocity += Real3(-1,-1,0);
     }
     if(this.Direction == 7)
     {
+     //Console.WriteLine("this is a thing7");
       this.Owner.Parent.RigidBody.Velocity += Real3(-1,0,0);
     }
     if(this.Direction == 8)
     {
+      //Console.WriteLine("this is a thing8");
       this.Owner.Parent.RigidBody.Velocity += Real3(-1,1,0);
     }
       
-      
-    if(this.Transform.WorldTranslation.Y < 150 && this.Owner.Sprite.SpriteSource != SpriteSource.IA_Enemy_Parachute_SS_Ani)
+    if(this.Owner.Sprite.SpriteSource == SpriteSource.IA_Enemy_Flap_SS_Ani)
     {
-      this.Owner.Parent.RigidBody.Velocity += Real3(this.Rand.Range(-10,10) ,2,0);
-      this.Timer = 0;
+      if(this.Transform.WorldTranslation.Y < 150 && this.Owner.Sprite.SpriteSource != SpriteSource.IA_Enemy_Parachute_SS_Ani)
+      {
+        this.Owner.Parent.RigidBody.Velocity += Real3(this.Rand.Range(-10,10) ,2,0);
+        this.Timer = 0;
+      }
     }
     if(this.Transform.WorldTranslation.Y > 224)
     {

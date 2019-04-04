@@ -3,7 +3,7 @@
 //Date Created: 3/27/2019
 //Date Edited: 3/28/2019
 //Description: Movement for the Lightning Ball Projectile
-//Version 1.1
+//Version 1.2
 ////////////////////////
 
 
@@ -14,9 +14,52 @@ class LightningBallMovement : ZilchComponent
   
   var RandGen : Random = Random();
   
+  var Random : Real;
+  var Random2 : Real;
+  var RandomX : Real = 0;
+  var RandomY : Real = 0;
+  
+  [Property]
+  var BounceSound : SoundCue = null;
+  
   function Initialize(init : CogInitializer)
   {
-    //randomizes velocity
-    this.Owner.RigidBody.Velocity = Math.Normalize(Real3(Math.Cos(this.RandGen.DieRoll(360)),Math.Sin(this.RandGen.DieRoll(360)),0)) * this.Speed;
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    //randomizes velocity for X coordinate
+    this.Random = this.RandGen.DieRoll(2);
+    if(this.Random == 1)
+    {
+      this.RandomX = 1;
+    }
+    else
+    {
+      this.RandomX = -1;
+    }
+    //Randomizes velocity for y coordinate
+    this.Random2 = this.RandGen.DieRoll(2);
+    if(this.Random2 == 1)
+    {
+      this.RandomY = 1;
+    }
+    else
+    {
+      this.RandomY = -1;
+    }
+    //sets velocity
+    this.Owner.RigidBody.Velocity = Math.Normalize(Real3(this.RandomX ,this.RandomY,0)) * this.Speed;
+    this.GameSession.GameVars.LightningBallX = this.RandomX;
+    this.GameSession.GameVars.LightningBallY = this.RandomY;
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    //plays sound on collision
+    this.Space.SoundSpace.PlayCue(SoundCue.ISbounce);
+    if(event.OtherObject.PlayerKill != null) 
+    {
+      event.OtherObject.PlayerAnimationController.PlayerChild.PlayerVars.PlayerBalloons = 0;
+      this.Owner.Destroy();
+    }
   }
 }
+
