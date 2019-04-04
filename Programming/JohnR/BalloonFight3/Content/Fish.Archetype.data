@@ -42,19 +42,17 @@ Cog
 		var Speed = 50
 		var Boundry1 = 60
 		var Boundry2 = 190
+		var BoundryY = 30
 	}
 	FishCoordinates 
 	{
 	}
 	FishAnimationController 
 	{
-		var FishStartingPosition = 30
+		var FishStartingPosition = 25
 		var YFrame1 = 5
 		var YFrame2 = 10
 		var YFrame3 = 15
 		var YFrame4 = 20
-		var YFrame5 = 25
-		var YFrame6 = 30
-		var YFrame7 = 35
 	}
 }

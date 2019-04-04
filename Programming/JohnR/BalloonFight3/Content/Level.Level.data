@@ -214,7 +214,7 @@ Level
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 60
-			var Size = 500
+			var Size = 240
 		}
 		SoundListener 
 		{
@@ -792,8 +792,8 @@ Level
 			var Fish = "5cc51800241e1da5:Fish"
 			var Boundry1 = 60
 			var Boundry2 = 190
-			var BoundryY = 30
-			var FishSpawnLocation = 30
+			var BoundryY = 40
+			var FishSpawnLocation = 25
 		}
 	}
 }
