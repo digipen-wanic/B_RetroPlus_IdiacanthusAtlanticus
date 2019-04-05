@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{106.605232, 62.5050125, 19}
+			var Translation = Real3{149.133255, 147.966064, 19.0000019}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 128.890289
+			var Size = 350.359802
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{106.605232, 62.5050125, -1.00000072}
+			var LookTarget = Real3{149.133255, 147.966064, -0.999998927}
 			var MoveSensitivity = 1
 		}
 	}
@@ -227,8 +227,18 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c4a885d9f21dd4b][InheritId:"5c488628dbdeaa80:PlayerM"][ContextId:6]
+			{
+				Sprite 
+				{
+					var SpriteSource = "5c01712e09bc9e66:IA_BalloonFighterIdleFull_Ani"
+				}
+			}
+		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:7]
 	{
 		var Name = "Platform_Right"
 		Transform 
@@ -276,7 +286,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:8]
 	{
 		var Name = "Platform_RightOut"
 		Transform 
@@ -324,7 +334,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:9]
 	{
 		var Name = "Platform_Center"
 		Transform 
@@ -372,7 +382,7 @@ Level
 			var HalfSize = Real3{56, 3, 2.5}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:10]
 	{
 		var Name = "Platform_Left"
 		Transform 
@@ -420,7 +430,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:11]
 	{
 		var Name = "Platform_LeftOut"
 		Transform 
@@ -468,35 +478,6 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:11]
-	{
-		var Name = "Balloonbattlemainstage"
-		Transform 
-		{
-			var Translation = Real3{127.5, 103.697815, -10}
-			var Scale = Real3{0.74000001, 0.800000012, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c017b2ceb3d580e:Balloonbattlemainstage"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
 	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:12]
 	{
 		var Name = "EnemyBoxM"
@@ -516,12 +497,12 @@ Level
 			{
 				Transform 
 				{
-					var Translation = Real3{0, 0, 0}
+					var Translation = Real3{0, 1.62010193, 0}
 				}
 				Sprite 
 				{
 					var VertexColor = Real4{1, 1, 1, 1}
-					var SpriteSource = "5c261325940c9cc3:IA_Enemy_Flap_SS_Ani"
+					var SpriteSource = "5c4e2a59a44f92a0:x16square"
 				}
 			}
 		}
@@ -731,6 +712,10 @@ Level
 		{
 			var Delay = 2
 			var Fish = "5cc51800241e1da5:Fish"
+			var Boundry1 = 60
+			var Boundry2 = 190
+			var BoundryY = 30
+			var FishSpawnLocation = 30
 		}
 	}
 	Cog [ContextId:19]
@@ -785,7 +770,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{152.746628, 85.8479538, -1}
+			var Translation = Real3{152.746628, 87.8731003, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -804,7 +789,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{120.872787, 85.5323868, -1}
+			var Translation = Real3{120.872787, 88.3675919, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -817,6 +802,35 @@ Level
 					var VertexColor = Real4{1, 1, 1, 1}
 				}
 			}
+		}
+	}
+	Cog [ContextId:24]
+	{
+		var Name = "IA_Background_Ani"
+		Transform 
+		{
+			var Translation = Real3{128, 120, -10}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c26028441010abf:IA_Background_Ani"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }
