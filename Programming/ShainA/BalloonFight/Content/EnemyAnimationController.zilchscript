@@ -123,7 +123,7 @@ class EnemyAnimationController : ZilchComponent
       this.Timer += event.Dt;
     }
     
-    if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Pump_SS_Ani && this.PlayerChild.Sprite.CurrentFrame == 5)
+    if(this.PlayerChild.Sprite.SpriteSource == SpriteSource.IA_Enemy_Pump_SS_Ani && this.PlayerChild.Sprite.CurrentFrame == 7)
     {
       //BAR BENZVI HAHAHAHAH
       this.PlayerChild.Sprite.SpriteSource = SpriteSource.IA_Enemy_Flap_SS_Ani;

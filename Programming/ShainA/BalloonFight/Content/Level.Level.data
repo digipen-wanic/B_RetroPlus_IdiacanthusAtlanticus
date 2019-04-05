@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{127.5, 101.627098, 19}
+			var Translation = Real3{127.159592, 113.170853, 19}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 472.936127
+			var Size = 350.359802
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{127.5, 101.627098, -1}
+			var LookTarget = Real3{127.159592, 113.170853, -1.00000012}
 			var MoveSensitivity = 1
 		}
 	}
@@ -227,8 +227,51 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c4a885d9f21dd4b][InheritId:"5c488628dbdeaa80:PlayerM"][ContextId:6]
+			{
+				Transform 
+				{
+					var Translation = Real3{0, -0.925247192, 0}
+				}
+				Sprite 
+				{
+					var SpriteSource = "5c01712e09bc9e66:IA_BalloonFighterIdleFull_Ani"
+				}
+				Hierarchy 
+				{
+					Cog [Id:0x5c49e00fecbbf106][InheritId:"5c49e3f172a9c504:PlayerBox"][ContextId:7]
+					{
+						Hierarchy 
+						{
+							Cog [Id:0x5c49e0731c909bb7][InheritId:"5c4ed5487f748aa5:Player"][ContextId:8]
+							{
+								Sprite 
+								{
+									var SpriteSource = "5c01712e09bc9e66:IA_BalloonFighterIdleFull_Ani"
+								}
+							}
+						}
+					}
+					Cog [Id:0x5c49e031ec0473e8][InheritId:"5c49e3f172a9c504:PlayerBox"][ContextId:9]
+					{
+						Hierarchy 
+						{
+							Cog [Id:0x5c49e0751c182c78][InheritId:"5c4ed5487f748aa5:Player"][ContextId:10]
+							{
+								Sprite 
+								{
+									var SpriteSource = "5c01712e09bc9e66:IA_BalloonFighterIdleFull_Ani"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:11]
 	{
 		var Name = "Platform_Right"
 		Transform 
@@ -276,7 +319,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:12]
 	{
 		var Name = "Platform_RightOut"
 		Transform 
@@ -324,7 +367,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:13]
 	{
 		var Name = "Platform_Center"
 		Transform 
@@ -372,7 +415,7 @@ Level
 			var HalfSize = Real3{56, 3, 2.5}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:14]
 	{
 		var Name = "Platform_Left"
 		Transform 
@@ -420,7 +463,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:15]
 	{
 		var Name = "Platform_LeftOut"
 		Transform 
@@ -468,7 +511,7 @@ Level
 			var HalfSize = Real3{32, 6, 2.5}
 		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:16]
 	{
 		var Name = "Balloonbattlemainstage"
 		Transform 
@@ -497,14 +540,18 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:12]
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:17]
 	{
 		var Name = "EnemyBoxM"
 		Transform 
 		{
-			var Translation = Real3{87.4529648, 84.9023819, -0.999995649}
+			var Translation = Real3{87.4529648, 90, -0.999995649}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
+		}
+		Sprite 
+		{
+			var SpriteSource = "5c4e2a59a44f92a0:x16square"
 		}
 		BoxCollider 
 		{
@@ -512,7 +559,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:13]
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:18]
 			{
 				Transform 
 				{
@@ -521,22 +568,22 @@ Level
 				Sprite 
 				{
 					var VertexColor = Real4{1, 1, 1, 1}
-					var SpriteSource = "5c261325940c9cc3:IA_Enemy_Flap_SS_Ani"
+					var SpriteSource = "5c4e2a59a44f92a0:x16square"
 				}
 			}
 		}
 	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:14]
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:19]
 	{
 		Transform 
 		{
-			var Translation = Real3{152.746628, 85.8479538, -1}
+			var Translation = Real3{152.746628, 90, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:15]
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:20]
 			{
 				Sprite 
 				{
@@ -545,17 +592,17 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:16]
+	Cog [InheritId:"5c48f856506c5f31:EnemyBoxM"][ContextId:21]
 	{
 		Transform 
 		{
-			var Translation = Real3{120.872787, 85.5323868, -1}
+			var Translation = Real3{120.872787, 90, -1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:17]
+			Cog [Id:0x5c48f9f2275db199][InheritId:"5c48f9ee20b4d2c0:Enemy"][ContextId:22]
 			{
 				Sprite 
 				{
@@ -564,7 +611,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:18]
+	Cog [ContextId:23]
 	{
 		var Name = "WalkPlatform_Right"
 		Transform 
@@ -612,7 +659,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:19]
+	Cog [ContextId:24]
 	{
 		var Name = "WalkPlatform_Left"
 		Transform 
@@ -660,7 +707,7 @@ Level
 			var HalfSize = Real3{56, 1, 0.5}
 		}
 	}
-	Cog [ContextId:20]
+	Cog [ContextId:25]
 	{
 		var Name = "WalkPlatform_Center"
 		Transform 
@@ -708,7 +755,7 @@ Level
 			var HalfSize = Real3{55, 1, 0.5}
 		}
 	}
-	Cog [ContextId:21]
+	Cog [ContextId:26]
 	{
 		var Name = "IA_Water_Front"
 		Transform 
@@ -737,7 +784,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:22]
+	Cog [ContextId:27]
 	{
 		var Name = "IA_Water_Back"
 		Transform 
@@ -766,7 +813,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:23]
+	Cog [ContextId:28]
 	{
 		var Name = "Sprite"
 		Transform 
@@ -812,6 +859,35 @@ Level
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 500}
+		}
+	}
+	Cog [ContextId:29]
+	{
+		var Name = "IA_Background_Ani"
+		Transform 
+		{
+			var Translation = Real3{128, 120, -10}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c26028441010abf:IA_Background_Ani"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }
