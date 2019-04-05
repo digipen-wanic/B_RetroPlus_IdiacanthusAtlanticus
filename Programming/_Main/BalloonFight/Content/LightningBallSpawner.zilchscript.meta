@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "LightningBallSpawner"
-		var ResourceId = 0x5cfbe27a2ee66cf4
-	}
-}

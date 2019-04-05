@@ -13,6 +13,13 @@ class FishAI : ZilchComponent
   //acceleration varaibles
   var Accel : Real = 0;
   var Accel2 : Real = 0;
+  [Property]
+  var Boundry1 : Real = 60;
+  [Property]
+  var Boundry2 : Real = 190;
+  
+  [Property]
+  var BoundryY : Real = 30;
   
   var MovementState : Boolean = false;
   function Initialize(init : CogInitializer)
@@ -22,29 +29,40 @@ class FishAI : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.GameSession.GameVars.PlayerYCoordinate <= 50)
+    if(this.GameSession.GameVars.PlayerYCoordinate <= this.BoundryY)
     {
       //sets the fish x coordinate to the player's x coordinate
+      if(this.Owner.Transform.Translation.X >= this.Boundry1 && this.Owner.Transform.Translation.X <= this.Boundry2)
+      {
       this.Owner.Transform.Translation = Real3(this.GameSession.GameVars.PlayerXCoordinate, this.Owner.Transform.Translation.Y, 0);
-      
+      }
+          
       if(this.MovementState == true)
       {
         this.Accel2 += this.Speed * event.Dt;
         
       }
-      if(this.Owner.Transform.Translation.Y >= this.GameSession.GameVars.PlayerYCoordinate)
+      if(this.Owner.Transform.Translation.X >= this.Boundry1 && this.Owner.Transform.Translation.X <= this.Boundry2)
       {
-        this.Accel2 += this.Speed * event.Dt;
+        if(this.Owner.Transform.Translation.Y >= this.GameSession.GameVars.PlayerYCoordinate)
+        {
+          this.Accel2 += this.Speed * event.Dt;
+          this.Owner.RigidBody.Velocity = Real3(0, -1 * this.Accel2, 0);
+          this.MovementState =  true;
+          this.GameSession.GameVars.FishAtePlayer = true;
+        }
+      }
+      if(!(this.Owner.Transform.Translation.X >= this.Boundry1 && this.Owner.Transform.Translation.X <= this.Boundry2))
+      {
         this.Owner.RigidBody.Velocity = Real3(0, -1 * this.Accel2, 0);
-        this.MovementState =  true;
-        this.GameSession.GameVars.FishAtePlayer = true;
+        this.MovementState = true;
       }
       if(this.MovementState == false)
       {
         this.Accel += this.Speed * event.Dt;
         this.Owner.RigidBody.Velocity = Real3(0, 1 * this.Accel, 0);
       }
-    if(this.Owner.Transform.Translation.Y <= 10 && this.GameSession.GameVars.FishAtePlayer == true)
+    if(this.Owner.Transform.Translation.Y <= 10)
     {
       this.GameSession.GameVars.FishAtePlayer = false;
       this.GameSession.GameVars.FishExists = false;

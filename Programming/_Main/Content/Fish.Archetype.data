@@ -4,7 +4,7 @@ Cog
 	var Name = "Fish"
 	Transform 
 	{
-		var Translation = Real3{215.874054, 65.606636, -1.00001085}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -20,7 +20,7 @@ Cog
 		var Material = "582c575af53d18c9:AlphaSprite"
 		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5cc518493a9280f2:IA_BalloonFish_0"
+		var SpriteSource = "5c2612c8d862d36a:IA_BalloonFish_Ani"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
@@ -40,8 +40,20 @@ Cog
 	FishAI 
 	{
 		var Speed = 50
+		var Boundry1 = 60
+		var Boundry2 = 190
+		var BoundryY = 50
 	}
 	FishCoordinates 
 	{
+	}
+	FishAnimationController 
+	{
+		var FishStartingPosition = 25
+		var YFrame1 = 1
+		var YFrame2 = 2
+		var YFrame3 = 3
+		var YFrame4 = 4
+		var Delay = 0.5
 	}
 }

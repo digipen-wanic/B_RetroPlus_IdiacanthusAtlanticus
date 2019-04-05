@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "PlayerAnimationController"
-		var ResourceId = 0x5c18fde83dc5dc6a
-	}
-}

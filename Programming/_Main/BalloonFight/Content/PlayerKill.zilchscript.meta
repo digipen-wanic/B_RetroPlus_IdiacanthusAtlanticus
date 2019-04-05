@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "PlayerKill"
-		var ResourceId = 0x5c70d8bca19d8e6c
-	}
-}
